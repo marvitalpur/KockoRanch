@@ -13,7 +13,7 @@ const StackNavigator = () => {
       screenOptions={{
         headerShown: true,
       }}>
-      <Stack.Screen name="Splash" component={Splash} />
+      {/* <Stack.Screen name="Splash" component={Splash} /> */}
       <Stack.Screen name="Login" component={Login} />
       <Stack.Screen name="TabNavigator" component={TabNavigator} />
       <Stack.Screen name="DrawerNavigator" component={DrawerNavigator} />

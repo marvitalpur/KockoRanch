@@ -18,15 +18,15 @@ import Inputs from '../../components/Inputs';
 import ButtonComponent from '../../components/ButtonComponent';
 
 const Login = ({navigation}) => {
-  const [data, setDat] = useState({
-    username: '',
-    password: '',
-  });
+  // const [data, setData] = useState({
+  //   username: '',
+  //   password: '',
+  // });
   const [rememberMe, setRememberMe] = useState(false);
   return (
     <SafeAreaView style={styles.container}>
       <ImageBackground
-        source={Assets.BAckgrounImages.bg1}
+        source={Assets.BackgrounImages.bg1}
         resizeMode="cover"
         style={styles.image}>
         <View style={{paddingTop: 25, alignSelf: 'center'}}>
@@ -66,7 +66,7 @@ const Login = ({navigation}) => {
                   Enter Email or Phone
                 </Text>
                 <View style={{marginTop: 10}}>
-                  <Inputs placeholder="Email or Phone" textColor="#fff" />
+                  {/* <Inputs placeholder="Email or Phone" textColor="#fff" /> */}
                 </View>
                 <View style={{marginTop: 10}} />
                 <Text
@@ -79,7 +79,7 @@ const Login = ({navigation}) => {
                   Enter Password
                 </Text>
                 <View style={{marginTop: 10}} />
-                <Inputs placeholder="Enter Password" textColor="#fff" />
+                {/* <Inputs placeholder="Enter Password" textColor="#fff" /> */}
                 <View
                   style={{
                     flexDirection: 'row',
@@ -132,7 +132,7 @@ const Login = ({navigation}) => {
                       },
                     ]}>
                     Create Your Account?
-                    <Text style={{color: '#ffff'}}> Signup</Text>
+                    <Text style={{color: '#ffff'}}>Signup</Text>
                   </Text>
                   <View style={{marginTop: 15}} />
                   <ButtonComponent
