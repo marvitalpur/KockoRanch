@@ -8,18 +8,20 @@ import {
   View,
 } from 'react-native';
 import React from 'react';
-import {SafeAreaView} from 'react-native-safe-area-context';
+import { SafeAreaView } from 'react-native-safe-area-context';
 import Colors from '../../assets/constatnts/Colors';
 import ProductCard from '../../components/ProductCard';
 import ProductCardSm from '../../components/ProductCardSm';
-import {HEIGHT, WIDTH} from '../../assets/constatnts/Dimentions';
+import { HEIGHT, WIDTH } from '../../assets/constatnts/Dimentions';
 import Assets from '../../assets';
 import ProductCardlg from '../../components/ProductCardLG';
-import {FlatList} from 'react-native-gesture-handler';
-import {FAB} from 'react-native-paper';
+import { FlatList } from 'react-native-gesture-handler';
+import { FAB } from 'react-native-paper';
 import ButtonComponent from '../../components/ButtonComponent';
+import Searcbar from '../../components/Searchbar';
 
-const Home = ({navigation}) => {
+
+const HomeScreen = ({ navigation }) => {
   const data = [{}, {}, {}, {}, {}, {}];
   return (
     <SafeAreaView style={styles.container}>
@@ -27,15 +29,17 @@ const Home = ({navigation}) => {
         source={Assets.BackgrounImages.bg1}
         resizeMode="cover"
         style={styles.image}>
+
         <ScrollView
           bounces={false}
           showsVerticalScrollIndicator={true}
-          contentContainerStyle={{flexGrow: 1}}>
-          <View style={{flex: 1, paddingHorizontal: 20}}>
-            <View style={{marginVertical: 15}}>
+          contentContainerStyle={{ flexGrow: 1 }}>
+          <View style={{ flex: 1, paddingHorizontal: 20 }}>
+            <View style={{ marginVertical: 25, flexDirection: 'row' }}>
               <FAB />
+              <Searcbar />
             </View>
-            <View style={{height: HEIGHT / 3.6}}>
+            <View style={{ height: HEIGHT / 3.6 }}>
               <ProductCardlg
                 image1
                 BtnTouchable1
@@ -59,15 +63,20 @@ const Home = ({navigation}) => {
             // numColumns={2}
             horizontal={true}
             showsHorizontalScrollIndicator={true}
-            renderItem={({item, index}) => {
+            renderItem={({ item, index }) => {
               return (
                 <>
-                  <View style={{padding: 15}}>
+                  <View style={{ padding: 15, }}>
                     <ProductCard
-                      backgroundColor={'green'}
+                      image={Assets.products.product3}
+                      text1={'$14.80'}
+                      text2={'$17.80'}
+                      backgroundColor={'#1A1A1A'}
+                      description="Koko Ranch Cannabis Product Name Here"
                       products={true}
+                      // image={Assets.products.product2}
                       width={154}
-                      height={200}
+                      height={220}
                       borderRadius={23}
                       color="#f2f"
                       fontWeight="bold"
@@ -79,7 +88,7 @@ const Home = ({navigation}) => {
           />
 
           <View style={[styles.detailProduct, {}]}>
-            <View style={{marginTop: 25, paddingHorizontal: 15}}>
+            <View style={{ marginTop: 25, paddingHorizontal: 15 }}>
               <View
                 style={{
                   // paddingTop: 15,
@@ -98,14 +107,14 @@ const Home = ({navigation}) => {
                   }}
                 />
               </View>
-              <View style={{marginTop: 15}}>
-                <Text style={[styles.text, {fontSize: 12, color: '#14A384'}]}>
+              <View style={{ marginTop: 15 }}>
+                <Text style={[styles.text, { fontSize: 12, color: '#14A384' }]}>
                   INFORMATION
                 </Text>
                 <Text
                   style={[
                     styles.text,
-                    {fontSize: 20, paddingTop: 5, color: '#ffff'},
+                    { fontSize: 20, paddingTop: 5, color: '#ffff' },
                   ]}>
                   About KoKo Ranch
                 </Text>
@@ -127,7 +136,7 @@ const Home = ({navigation}) => {
                   ipsum dolor sit amet, consetetur sadipscing elitr, sed diam
                   nonumy eirmod tempor.
                 </Text>
-                <View style={{marginTop: 15}} />
+                <View style={{ marginTop: 15 }} />
                 <ButtonComponent
                   btnfonSize={10}
                   borderRadius={12}
@@ -141,7 +150,8 @@ const Home = ({navigation}) => {
               </View>
             </View>
 
-            <View style={{flex: 1, paddingHorizontal: 15}}>
+
+            <View style={{ flex: 1, paddingHorizontal: 15 }}>
               <ProductCardSm
                 OnpresCard={() => {
                   navigation.navigate('AssismentScreen');
@@ -150,16 +160,17 @@ const Home = ({navigation}) => {
                 text="Fitness Assesment"
               />
             </View>
-            <View style={{}}>
+            <View style={{ paddingHorizontal: 15 }}>
+
               <FlatList
                 data={data}
                 numColumns={3}
                 // horizontal={true}
                 // showsHorizontalScrollIndicator={true}
-                renderItem={({item, index}) => {
+                renderItem={({ item, index }) => {
                   return (
                     <>
-                      <View style={{padding: 15, marginTop: 10}}>
+                      <View style={{ padding: 15, marginTop: 10 }}>
                         <ProductCard
                           name={'product'}
                           backgroundColor={'#CAEAE3'}
@@ -176,7 +187,11 @@ const Home = ({navigation}) => {
                 }}
               />
             </View>
-            <View style={{flex: 1, backgroundColor: 'pink'}}>
+            <View style={{
+              flex: 1,
+              //  backgroundColor: 'pink',
+              paddingHorizontal: 15
+            }}>
               <ProductCardSm
                 OnpresCard={() => {
                   navigation.navigate('AssismentScreen');
@@ -185,25 +200,60 @@ const Home = ({navigation}) => {
                 text="Fitness Assesment"
               />
             </View>
-            <View style={{backgroundColor: 'teal'}}>
+            <View style={{}}>
               <FlatList
                 data={data}
                 numColumns={2}
                 // horizontal={true}
                 // showsHorizontalScrollIndicator={true}
-                renderItem={({item, index}) => {
+                renderItem={({ item, index }) => {
                   return (
                     <>
-                      <View style={{padding: 15}}>
+                      <View style={{ padding: 25 }}>
                         <ProductCard
+                          image={Assets.products.product3}
+                          text1={'$14.80'}
+                          text2={'$17.80'}
+                          backgroundColor={'#1A1A1A'}
+                          description="Koko Ranch Cannabis Product Name Here"
                           products={true}
                           // image={Assets.products.product2}
                           width={154}
-                          height={200}
+                          height={220}
                           borderRadius={23}
                           color="#f2f"
                           fontWeight="bold"
                         />
+                      </View>
+                    </>
+                  );
+                }}
+              />
+            </View>
+            <View style={{
+              flex: 1,
+              backgroundColor: 'pink',
+              paddingHorizontal: 15
+            }}>
+              <ProductCardSm
+                OnpresCard={() => {
+                  navigation.navigate('AssismentScreen');
+                }}
+                img={Assets.BackgrounImages.bg1}
+                text="Fitness Assesment"
+              />
+            </View>
+            <View style={{}}>
+              <FlatList
+                data={data}
+                numColumns={2}
+                // horizontal={true}
+                // showsHorizontalScrollIndicator={true}
+                renderItem={({ item, index }) => {
+                  return (
+                    <>
+                      <View style={{ padding: 25 }}>
+
                       </View>
                     </>
                   );
@@ -217,7 +267,7 @@ const Home = ({navigation}) => {
   );
 };
 
-export default Home;
+export default HomeScreen;
 
 const styles = StyleSheet.create({
   container: {

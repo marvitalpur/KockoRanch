@@ -6,33 +6,50 @@ import {
   TouchableOpacity,
   ImageBackground,
 } from 'react-native';
-import React, {useState} from 'react';
-import {SafeAreaView} from 'react-native-safe-area-context';
-import {KeyboardAwareScrollView} from 'react-native-keyboard-aware-scroll-view';
-import {HEIGHT, WIDTH} from '../../assets/constatnts/Dimentions';
+import React, { useState } from 'react';
+import { SafeAreaView } from 'react-native-safe-area-context';
+import { KeyboardAwareScrollView } from 'react-native-keyboard-aware-scroll-view';
+import { HEIGHT, WIDTH } from '../../assets/constatnts/Dimentions';
 import Assets from '../../assets';
-import {Colors} from '../../assets/constatnts/Colors';
-import {LogoSvgs} from '../../assets/svgs/iconsSvgs';
+import { Colors } from '../../assets/constatnts/Colors';
+import { LogoSvgs } from '../../assets/svgs/iconsSvgs';
 import Icon from 'react-native-vector-icons/Feather';
-import Inputs from '../../components/Inputs';
 import ButtonComponent from '../../components/ButtonComponent';
+import Inputs from '../../components/Inputs';
 
-const Login = ({navigation}) => {
-  // const [data, setData] = useState({
-  //   username: '',
-  //   password: '',
-  // });
+const Login = ({ navigation }) => {
+  const [data, setData] = useState({
+    username: '',
+    password: '',
+  });
+
   const [rememberMe, setRememberMe] = useState(false);
+
+  const SaveData = async () => {
+    console.warn(username)
+    // const url = ";
+    // let Result = await fetch(url, {
+
+    //   method: "POST",
+    //   headers: { "Content-type": "application/json" },
+    //   body: JSON.stringify(data)
+    // }),
+
+    //   result = Result.json(),
+
+
+  }
   return (
+
     <SafeAreaView style={styles.container}>
       <ImageBackground
         source={Assets.BackgrounImages.bg1}
         resizeMode="cover"
         style={styles.image}>
-        <View style={{paddingTop: 25, alignSelf: 'center'}}>
+        <View style={{ paddingTop: 25, alignSelf: 'center' }}>
           <LogoSvgs />
         </View>
-        <View style={{paddingHorizontal: 25}}>
+        <View style={{ paddingHorizontal: 25 }}>
           <View style={styles.box}>
             <KeyboardAwareScrollView
               keyboardShouldPersistTaps="handled"
@@ -40,7 +57,7 @@ const Login = ({navigation}) => {
               enableAutomaticScroll={true}
               bounces={false}
               showsVerticalScrollIndicator={false}
-              contentContainerStyle={{flexGrow: 1}}>
+              contentContainerStyle={{ flexGrow: 1 }}>
               <View
                 style={{
                   paddingHorizontal: 25,
@@ -55,7 +72,7 @@ const Login = ({navigation}) => {
                   }}>
                   Login
                 </Text>
-                <View style={{marginTop: 10}} />
+                <View style={{ marginTop: 10 }} />
                 <Text
                   style={{
                     fontWeight: '600',
@@ -65,21 +82,29 @@ const Login = ({navigation}) => {
                   }}>
                   Enter Email or Phone
                 </Text>
-                <View style={{marginTop: 10}}>
-                  {/* <Inputs placeholder="Email or Phone" textColor="#fff" /> */}
+
+                <View style={{ marginTop: 10 }}>
+                  <Inputs placeholder="Email or Phone"
+                    textColor="#AAA" text={data.username}
+                    setText={setData}
+                    formkey="username" />
                 </View>
-                <View style={{marginTop: 10}} />
+                <View style={{ marginTop: 10 }} />
                 <Text
                   style={{
                     fontWeight: '600',
                     fontSize: 14,
+                    // color: Colors.TextColor1.Primary,
                     color: Colors.textColor.TextColor1,
                     marginTop: 15,
                   }}>
                   Enter Password
                 </Text>
-                <View style={{marginTop: 10}} />
-                {/* <Inputs placeholder="Enter Password" textColor="#fff" /> */}
+                <View style={{ marginTop: 10 }} />
+                <Inputs placeholder="Enter Password"
+                  textColor="#AAA" text={data.password}
+                  setText={setData}
+                  formkey="password" />
                 <View
                   style={{
                     flexDirection: 'row',
@@ -87,6 +112,7 @@ const Login = ({navigation}) => {
                     alignItems: 'center',
                     marginTop: 10,
                   }}>
+
                   <TouchableOpacity
                     style={styles.touchable}
                     onPress={() => setRememberMe(!rememberMe)}>
@@ -99,7 +125,7 @@ const Login = ({navigation}) => {
                           : Colors.textColor.TextColor1
                       }
                     />
-                    <Text style={[styles.text, {marginLeft: 5}]}>
+                    <Text style={[styles.text, { marginLeft: 5 }]}>
                       Remember me
                     </Text>
                   </TouchableOpacity>
@@ -123,33 +149,35 @@ const Login = ({navigation}) => {
                     justifyContent: 'space-evenly',
                     marginTop: 15,
                   }}>
-                  <Text
-                    style={[
-                      styles.text,
-                      {
-                        // textDecorationLine: 'underline',
-                        color: Colors.Primary,
-                      },
-                    ]}>
-                    Create Your Account?
-                    <Text style={{color: '#ffff'}}>Signup</Text>
-                  </Text>
-                  <View style={{marginTop: 15}} />
+                  <TouchableOpacity
+                    style={[]}
+                    onPress={() =>
+                      navigation.navigate('')
+                    }>
+                    <Text
+                      style={[
+                        styles.text,
+                        {
+                          // textDecorationLine: 'underline',
+                          color: Colors.Primary,
+                        },
+                      ]}>
+                      Create Your Account?
+                      <Text style={{ color: '#ffff' }}>Signup</Text>
+                    </Text>
+                  </TouchableOpacity>
+                  <View style={{ marginTop: 15 }} />
                   <ButtonComponent
                     btnfonSize={16}
                     borderRadius={50}
                     buttonText="Login"
                     buttonColor={Colors.Primary}
                     textColor={Colors.textColor.TextColor1}
-                    onPress={() => navigation.navigate('Drawer')}
+                    onPress={() => navigation.replace('HomeScreen')}
                     height={WIDTH <= 375 ? 40 : 55}
                     width={WIDTH <= 375 ? 125 : 175}
                   />
-                  <TouchableOpacity
-                    style={[styles.touchable, {width: 175}]}
-                    onPress={() =>
-                      navigation.navigate('Signup')
-                    }></TouchableOpacity>
+
                 </View>
               </View>
             </KeyboardAwareScrollView>
@@ -173,10 +201,10 @@ const styles = StyleSheet.create({
   },
   box: {
     paddingTop: 15,
-    backgroundColor: Colors.blackBg,
+    // backgroundColor: Colors.blackBg,
     opacity: 0.7,
     // width: WIDTH,
-    height: HEIGHT / 1.8,
+    height: HEIGHT / 1.3,
     // alignItems: 'center',
     marginTop: 25,
     borderRadius: 5,
@@ -192,6 +220,6 @@ const styles = StyleSheet.create({
 
   text: {
     fontSize: 14,
-    color: Colors.textColor.TextColor1,
+    // color: Colors.textColor.TextColor1,
   },
 });

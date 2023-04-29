@@ -1,22 +1,22 @@
-import {StyleSheet, Text, View, SafeAreaView} from 'react-native';
-import React, {useEffect, useState} from 'react';
-import {LogoSvgs} from '../../assets/svgs/iconsSvgs';
-import {Colors} from '../../assets/constatnts/Colors';
-import {HEIGHT, WIDTH} from '../../assets/constatnts/Dimentions';
-import {useNavigation} from '@react-navigation/native';
+import { StyleSheet, Text, View, SafeAreaView } from 'react-native';
+import React, { useEffect, useState } from 'react';
+import { LogoSvgs } from '../../assets/svgs/iconsSvgs';
+import { Colors } from '../../assets/constatnts/Colors';
+import { HEIGHT, WIDTH } from '../../assets/constatnts/Dimentions';
+import { useNavigation } from '@react-navigation/native';
 const Splash = props => {
   const navigation = useNavigation();
 
   useEffect(() => {
     const timer = setTimeout(() => {
-      props.navigation.navigate('Login');
+      props.navigation.replace('Login');
     }, 2000);
 
     return () => clearTimeout(timer);
   }, [navigation]);
   return (
     <SafeAreaView style={styles.container}>
-      <View style={[styles.image, {paddingTop: 25, alignSelf: 'center'}]}>
+      <View style={[styles.image, { paddingTop: 25, alignSelf: 'center' }]}>
         <LogoSvgs />
       </View>
     </SafeAreaView>

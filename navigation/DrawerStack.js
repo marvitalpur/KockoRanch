@@ -1,5 +1,5 @@
-import React, {useState} from 'react';
-import {createDrawerNavigator} from '@react-navigation/drawer';
+import React, { useState } from 'react';
+import { createDrawerNavigator } from '@react-navigation/drawer';
 import {
   FlatList,
   ImageBackground,
@@ -8,7 +8,8 @@ import {
   TouchableOpacity,
   View,
 } from 'react-native';
-import {SafeAreaView} from 'react-native-safe-area-context';
+import { SafeAreaView } from 'react-native-safe-area-context';
+import HomeScreen from '../screens/homes/homesccreen';
 
 const DrawerNavigator = () => {
   const Drawer = createDrawerNavigator();
@@ -19,10 +20,11 @@ const DrawerNavigator = () => {
         headerTransparent: true,
         animationTypeForReplace: 'push',
         animation: 'slide_from_right',
-        drawerStyle: {width: '100%'},
+        drawerStyle: { width: '100%' },
       }}
       drawerContent={props => <CustomDrawerContent {...props} />}>
       {/* <Drawer.Screen name="Home" component={Home}/> */}
+      <Drawer.Screen name='HomeScreen' component={HomeScreen} />
     </Drawer.Navigator>
   );
 };
@@ -36,9 +38,9 @@ const CustomDrawerContent = props => {
       resizeMode="cover"
       style={styles.image}>
       <SafeAreaView style={styles.container}>
-        <View style={{paddingHorizontal: 15}}></View>
-        <View style={{paddingHorizontal: 30, marginTop: 25}}>
-          <View style={{width: 100, marginBottom: 25}}>
+        <View style={{ paddingHorizontal: 15 }}></View>
+        <View style={{ paddingHorizontal: 30, marginTop: 25 }}>
+          <View style={{ width: 100, marginBottom: 25 }}>
             <TouchableOpacity
               style={{
                 width: 100,
@@ -57,10 +59,10 @@ const CustomDrawerContent = props => {
             // backgroundColor: 'red',
             paddingLeft: 25,
           }}
-          ItemSeparatorComponent={<View style={{marginVertical: -10}} />}
+          ItemSeparatorComponent={<View style={{ marginVertical: -10 }} />}
           data={sidebarData}
           scrollEnabled={false}
-          renderItem={({item, index}) => (
+          renderItem={({ item, index }) => (
             <SidebarButton
               item={item}
               index={index}
@@ -117,13 +119,13 @@ const styles = StyleSheet.create({
     flex: 1,
     // backgroundColor: Colors.secondary,
   },
-  image: {flex: 1},
+  image: { flex: 1 },
 });
 
 const sidebarData = [
   {
     id: 1,
-    screen: 'Home',
+    screen: 'HomeScreen',
   },
   {
     id: 2,
