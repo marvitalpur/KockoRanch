@@ -64,6 +64,8 @@ const Home = ({navigation}) => {
                 <>
                   <View style={{padding: 15}}>
                     <ProductCard
+                      backgroundColor={'green'}
+                      products={true}
                       width={154}
                       height={200}
                       borderRadius={23}
@@ -157,8 +159,11 @@ const Home = ({navigation}) => {
                 renderItem={({item, index}) => {
                   return (
                     <>
-                      <View style={{padding: 15}}>
+                      <View style={{padding: 15, marginTop: 10}}>
                         <ProductCard
+                          name={'product'}
+                          backgroundColor={'#CAEAE3'}
+                          image={Assets.products.product2}
                           width={95}
                           height={95}
                           borderRadius={100}
@@ -191,6 +196,8 @@ const Home = ({navigation}) => {
                     <>
                       <View style={{padding: 15}}>
                         <ProductCard
+                          products={true}
+                          // image={Assets.products.product2}
                           width={154}
                           height={200}
                           borderRadius={23}

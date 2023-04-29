@@ -11,6 +11,7 @@ const ProductCard = ({
   fontWeight,
   borderRadius,
   height,
+  backgroundColor,
   width,
   color,
   products,
@@ -21,9 +22,11 @@ const ProductCard = ({
       style={[
         styles.card,
         {
+          borderWidth: products ? null : 2,
           borderRadius: borderRadius,
           width: width,
           height: height,
+          backgroundColor: backgroundColor,
           marginRight: index % 2 == 0 ? 5 : 0,
           marginLeft: index % 2 == 0 ? 0 : 5,
         },
@@ -37,7 +40,7 @@ const ProductCard = ({
               width: WIDTH / 4.5,
               height: WIDTH / 5.5,
               marginRight: 'auto',
-              backgroundColor: 'grey',
+              // backgroundColor: 'grey',
               position: 'absolute',
               top: -40,
             }}
@@ -50,9 +53,11 @@ const ProductCard = ({
               width: WIDTH / 4.5,
               height: WIDTH / 5.5,
               marginRight: 'auto',
-              backgroundColor: 'grey',
+              // backgroundColor: 'grey',
               position: 'absolute',
-              top: -20,
+              alignItems: 'center',
+              top: -30,
+              right: -8,
             }}
           />
         )}
@@ -63,12 +68,12 @@ const ProductCard = ({
         style={[styles.productName, {fontWeight: fontWeight, color: color}]}>
         {name}
       </Text>
-      <Text numberOfLines={1} style={styles.productDesc}>
+      {/* <Text numberOfLines={1} style={styles.productDesc}>
         {description}
-      </Text>
-      <View style={styles.priceBox}>
-        {/* <Text style={styles.priceText}>${price}/kg</Text> */}
-      </View>
+      </Text> */}
+      {/* <View style={styles.priceBox}>
+        <Text style={styles.priceText}>${price}/kg</Text>
+      </View> */}
     </TouchableOpacity>
   );
 };
@@ -90,16 +95,19 @@ const styles = StyleSheet.create({
     elevation: 15,
   },
   productImage: {
-    // height: '45%',
-    backgroundColor: 'red',
+    height: '45%',
+    justifyContent: 'center',
+    // backgroundColor: 'red',
   },
   productName: {
     width: '70%',
+    alignSelf: 'center',
+    marginTop: 15,
     // fontFamily: Fonts.default,
     fontWeight: '600',
     letterSpacing: 0.9,
     textTransform: 'capitalize',
-    backgroundColor: 'red',
+    // backgroundColor: 'red',
     color: '#ffff',
   },
   productDesc: {
