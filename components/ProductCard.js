@@ -1,6 +1,6 @@
-import { StyleSheet, Text, TouchableOpacity, View, Image } from 'react-native';
+import {StyleSheet, Text, TouchableOpacity, View, Image} from 'react-native';
 import React from 'react';
-import { WIDTH } from '../assets/constatnts/Dimentions';
+import {WIDTH} from '../assets/constatnts/Dimentions';
 import Colors from '../assets/constatnts/Colors';
 const ProductCard = ({
   name,
@@ -9,41 +9,65 @@ const ProductCard = ({
   price,
   index,
   fontWeight,
+  borderRadius,
+  height,
+  width,
   color,
+  products,
 }) => {
-  console.log(image);
+  // console.log(image);
   return (
     <TouchableOpacity
       style={[
         styles.card,
         {
+          borderRadius: borderRadius,
+          width: width,
+          height: height,
           marginRight: index % 2 == 0 ? 5 : 0,
           marginLeft: index % 2 == 0 ? 0 : 5,
         },
       ]}>
       <View style={styles.productImage}>
-        <Image
-          source={image}
-          resizeMode="contain"
-          style={{
-            width: WIDTH / 4.5,
-            height: WIDTH / 4.5,
-            marginLeft: 'auto',
-          }}
-        />
+        {products ? (
+          <Image
+            source={image}
+            resizeMode="contain"
+            style={{
+              width: WIDTH / 4.5,
+              height: WIDTH / 5.5,
+              marginRight: 'auto',
+              backgroundColor: 'grey',
+              position: 'absolute',
+              top: -40,
+            }}
+          />
+        ) : (
+          <Image
+            source={image}
+            resizeMode="contain"
+            style={{
+              width: WIDTH / 4.5,
+              height: WIDTH / 5.5,
+              marginRight: 'auto',
+              backgroundColor: 'grey',
+              position: 'absolute',
+              top: -20,
+            }}
+          />
+        )}
       </View>
-      <View style={{ height: '55%' }}>
-        <Text
-          numberOfLines={1}
-          style={[styles.productName, { fontWeight: fontWeight, color: color }]}>
-          {name}
-        </Text>
-        <Text numberOfLines={1} style={styles.productDesc}>
-          {description}
-        </Text>
-        <View style={styles.priceBox}>
-          <Text style={styles.priceText}>${price}/kg</Text>
-        </View>
+
+      <Text
+        numberOfLines={1}
+        style={[styles.productName, {fontWeight: fontWeight, color: color}]}>
+        {name}
+      </Text>
+      <Text numberOfLines={1} style={styles.productDesc}>
+        {description}
+      </Text>
+      <View style={styles.priceBox}>
+        {/* <Text style={styles.priceText}>${price}/kg</Text> */}
       </View>
     </TouchableOpacity>
   );
@@ -52,11 +76,9 @@ export default ProductCard;
 const styles = StyleSheet.create({
   card: {
     flex: 1,
-    height: 175,
-    width: 175,
     backgroundColor: '#FFFFFF',
     padding: 10,
-    borderRadius: 20,
+
     shadowColor: '#000',
     shadowOffset: {
       width: 0,
@@ -64,12 +86,12 @@ const styles = StyleSheet.create({
     },
     shadowOpacity: 0.43,
     shadowRadius: 9.51,
-    backgroundColor: '#ECF9',
+    backgroundColor: 'green',
     elevation: 15,
   },
   productImage: {
-    height: '45%',
-    backgroundColor: 'red'
+    // height: '45%',
+    backgroundColor: 'red',
   },
   productName: {
     width: '70%',
@@ -77,7 +99,7 @@ const styles = StyleSheet.create({
     fontWeight: '600',
     letterSpacing: 0.9,
     textTransform: 'capitalize',
-    backgroundColor: '#ECF9',
+    backgroundColor: 'red',
     color: '#ffff',
   },
   productDesc: {
@@ -85,12 +107,12 @@ const styles = StyleSheet.create({
     // fontFamily: Fonts.default,
     fontWeight: '300',
     color: '#AAAAAA',
-    backgroundColor: '#ECF9',
+    backgroundColor: 'teal',
   },
   priceBox: {
     width: '70%',
     height: 28,
-    backgroundColor: '#ECF9',
+    backgroundColor: 'yellow',
     marginLeft: 'auto',
     borderRadius: 10,
     marginTop: 15,

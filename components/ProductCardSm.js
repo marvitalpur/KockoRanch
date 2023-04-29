@@ -1,32 +1,26 @@
-import { FlatList, StyleSheet, Text, View } from 'react-native';
+import {FlatList, StyleSheet, Text, View} from 'react-native';
 import React from 'react';
-import { TouchableRipple } from 'react-native-paper';
-import { TouchableOpacity } from 'react-native-gesture-handler';
+import {TouchableRipple} from 'react-native-paper';
+import {TouchableOpacity} from 'react-native-gesture-handler';
 import ProductCard from './ProductCard';
 import Assets from '../assets';
+import {WIDTH} from '../assets/constatnts/Dimentions';
+import Colors from '../assets/constatnts/Colors';
 
 const ProductCardSm = () => {
-  const data = [
-    {
-      image: Assets.products.product1,
-    },
-    {
-      image: Assets.products.product1,
-    },
-    {
-      image: Assets.products.product1,
-    },
-    {
-      image: Assets.products.product1,
-    },
-  ];
   return (
     <View style={{}}>
       <View style={styles.header}>
-        <Text style={[styles.hradertext, {}]}>Featured Product</Text>
+        <Text style={[styles.hradertext, {}]}>
+          Featured
+          <Text style={{borderWidth: 2, borderColor: Colors.Primary}}>
+            {' '}
+            Product
+          </Text>
+        </Text>
         <TouchableRipple>
           <View>
-            <Text style={[styles.hradertext, { fontSize: 14 }]}>See All</Text>
+            <Text style={[styles.hradertext, {fontSize: 14}]}>See All</Text>
           </View>
         </TouchableRipple>
       </View>
@@ -40,13 +34,13 @@ const styles = StyleSheet.create({
     fontSize: 22,
     color: '#fff',
     fontWeight: 'bold',
-    lineHeight: 18,
+    lineHeight: 30,
   },
   header: {
-    backgroundColor: 'pink',
+    // backgroundColor: 'pink',
     // paddingHorizontal: 25,
-    // marginTop: WIDTH < 375 ? 25 : 50,
-    marginBottom: 15,
+    marginTop: WIDTH < 375 ? 25 : 30,
+    // marginBottom: 15,
     flexDirection: 'row',
     justifyContent: 'space-between',
     alignItems: 'center',

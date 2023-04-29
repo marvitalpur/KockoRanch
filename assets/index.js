@@ -5,7 +5,7 @@ const Assets = {
   Logos: {},
   products: {
     product1: require('./images/productlg.png'),
-    product2: require('./images/BAckgroundMD.png'),
+    product2: require('./images/bottel.png'),
     product3: require('./images/BAckgroundMD.png'),
     product4: require('./images/BAckgroundMD.png'),
   },
