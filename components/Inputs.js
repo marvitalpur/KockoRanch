@@ -1,21 +1,28 @@
-import {StyleSheet, Text, View} from 'react-native';
+import { StyleSheet, Text, View } from 'react-native';
 import React from 'react';
-import {TextInput} from 'react-native-paper';
-import {Colors} from '../assets/constatnts/Colors';
+import { TextInput } from 'react-native-paper';
+import { Colors } from '../assets/constatnts/Colors';
 
-const Inputs = ({text, setText, placeholder, iconname, textColor}) => {
+const Inputs = ({ text, setText, placeholder, iconname, textColor }) => {
+  const onChangeHandler = (value, name) => {
+    // how to handle for each state field
+    setText(form => ({
+      ...form,
+      [name]: value,
+    }));
+  };
   return (
     <View>
       <TextInput
         placeholder={placeholder}
         value={text}
-        onChangeText={text => onChangeHandler(text, formKey)}
+        onChangeText={text => onChangeHandler(text, 'input1')} // Update here
         right={<TextInput.Icon icon={iconname} iconColor="#00B4D8" />}
         activeUnderlineColor="transparent"
         underlineColor="transparent"
         selectionColor="#000"
         placeholderTextColor={textColor}
-        theme={{roundness: 10}}
+        theme={{ roundness: 10 }}
         style={{
           borderWidth: 1,
           borderColor: Colors.Tertiary,
@@ -36,6 +43,7 @@ const Inputs = ({text, setText, placeholder, iconname, textColor}) => {
           elevation: 15,
         }}
       />
+
     </View>
   );
 };

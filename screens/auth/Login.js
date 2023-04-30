@@ -9,32 +9,38 @@ import {
 import React, { useEffect, useState } from 'react';
 import { SafeAreaView } from 'react-native-safe-area-context';
 import { KeyboardAwareScrollView } from 'react-native-keyboard-aware-scroll-view';
-import { HEIGHT, WIDTH } from '../../assets/constatnts/Dimentions';
 import Assets from '../../assets';
 import { Colors } from '../../assets/constatnts/Colors';
 import { LogoSvgs } from '../../assets/svgs/iconsSvgs';
 import Icon from 'react-native-vector-icons/Feather';
 import ButtonComponent from '../../components/ButtonComponent';
 import Inputs from '../../components/Inputs';
+import { HEIGHT, WIDTH } from '../../assets/constatnts/Dimentions';
 
 const Login = ({ navigation }) => {
-  const [data, setData] = useState({
-    username: '',
-    password: '',
-  });
-  const [state, setState] = useState(undefined)
+  // const [data, setData] = useState({
+  //   username: '',
+  //   password: '',
+  // });
+  const [Email, setEmail] = useState('');
+  const [password, setPassword] = useState('');
   const [rememberMe, setRememberMe] = useState(false);
   const getApiData = async () => {
+    // console.warn(username);
+    // console.warn(password);
 
-    const url = "https://jsonplaceholder.typicode.com/posts";
-    let result = await fetch(url);
-    // console.warn('hello')
+    const url = "https://jsonplaceholder.typicode.com/posts'";
+    let result = await fetch(url, {
+      method: 'POST',
+      headers: {
+        "Content-Type": "application/json"
+      }, body: JSON.stringify({ Email, password })
+    });
     result = await result.json();
-    // console.log(result);
-    setState(result)
-
+    if (result) {
+      console.log("data is heree ")
+    }
   }
-
   useEffect(() => {
     getApiData();
   }, [])
@@ -48,11 +54,7 @@ const Login = ({ navigation }) => {
         <View style={{ paddingTop: 25, alignSelf: 'center' }}>
           <LogoSvgs />
         </View>
-        {state ?
-          <View style={{ backgroundColor: 'yellow' }}>
-            <Text>{state.userId}</Text>
-            <Text>{state.title}</Text>
-          </View> : null}
+
         <View style={{ paddingHorizontal: 25 }}>
           <View style={styles.box}>
             <KeyboardAwareScrollView
@@ -86,12 +88,11 @@ const Login = ({ navigation }) => {
                   }}>
                   Enter Email or Phone
                 </Text>
-
                 <View style={{ marginTop: 10 }}>
                   <Inputs placeholder="Email or Phone"
-                    textColor="#AAA" text={data.username}
-                    setText={setData}
-                    formkey="username" />
+                    textColor="#AAA" text={Email}
+                    setText={setEmail}
+                    formkey="Email" />
                 </View>
                 <View style={{ marginTop: 10 }} />
                 <Text
@@ -106,8 +107,8 @@ const Login = ({ navigation }) => {
                 </Text>
                 <View style={{ marginTop: 10 }} />
                 <Inputs placeholder="Enter Password"
-                  textColor="#AAA" text={data.password}
-                  setText={setData}
+                  textColor="#AAA" text={password}
+                  setText={setPassword}
                   formkey="password" />
                 <View
                   style={{
@@ -177,7 +178,8 @@ const Login = ({ navigation }) => {
                     buttonText="Login"
                     buttonColor={Colors.Primary}
                     textColor={Colors.textColor.TextColor1}
-                    onPress={() => navigation.replace('HomeScreen')}
+                    // onPress={() => navigation.replace('')}
+                    onPress={getApiData}
                     height={WIDTH <= 375 ? 40 : 55}
                     width={WIDTH <= 375 ? 125 : 175}
                   />

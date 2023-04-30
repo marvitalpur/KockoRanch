@@ -15,8 +15,8 @@ const Assets = {
   services: {
     services1: require('./images/services1.png'),
     services2: require('./images/Service2.png'),
-    services3: require('./images/treeServices.png'),
-    services4: require('./images/Tractor Repair.png'),
+    services3: require('./images/Service3.png'),
+    services4: require('./images/Service4.png'),
     services5: require('./images/Pest Control.png'),
   }
 };

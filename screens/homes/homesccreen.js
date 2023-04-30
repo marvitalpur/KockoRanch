@@ -22,7 +22,9 @@ import Searcbar from '../../components/Searchbar';
 
 
 const HomeScreen = ({ navigation }) => {
+  const [bgColor, SetBgColor] = useState(false)
   const [Data, setData] = useState([])
+
 
   const getApiData = async () => {
     const url = "https://jsonplaceholder.typicode.com/posts";
@@ -67,8 +69,6 @@ const HomeScreen = ({ navigation }) => {
                 BoxtbtnText={'Go Now'}
               />
             </View>
-
-
             <ProductCardSm
               OnpresCard={() => {
                 navigation.navigate('AssismentScreen');
