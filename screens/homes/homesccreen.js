@@ -7,7 +7,7 @@ import {
   Text,
   View,
 } from 'react-native';
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import { SafeAreaView } from 'react-native-safe-area-context';
 import Colors from '../../assets/constatnts/Colors';
 import ProductCard from '../../components/ProductCard';
@@ -22,7 +22,24 @@ import Searcbar from '../../components/Searchbar';
 
 
 const HomeScreen = ({ navigation }) => {
-  const data = [{}, {}, {}, {}, {}, {}];
+  const [Data, setData] = useState([])
+
+  const getApiData = async () => {
+    const url = "https://jsonplaceholder.typicode.com/posts";
+    let result = await fetch(url);
+    result = await result.json();
+    setData(result);
+  }
+  useEffect(() => {
+    getApiData();
+
+  }, [])
+  const data = [
+    { image: Assets.services.services1 },
+    { image: Assets.services.services2 },
+    { image: Assets.services.services3 },
+    { image: Assets.services.services4 },
+    { image: Assets.services.services5 }, {}];
   return (
     <SafeAreaView style={styles.container}>
       <ImageBackground
@@ -50,16 +67,21 @@ const HomeScreen = ({ navigation }) => {
                 BoxtbtnText={'Go Now'}
               />
             </View>
+
+
             <ProductCardSm
               OnpresCard={() => {
                 navigation.navigate('AssismentScreen');
               }}
+              text1={'Featured '}
+              text2={'Products'}
+              text3={'See All'}
               img={Assets.BackgrounImages.bg1}
               text="Fitness Assesment"
             />
           </View>
           <FlatList
-            data={data}
+            data={Data}
             // numColumns={2}
             horizontal={true}
             showsHorizontalScrollIndicator={true}
@@ -69,10 +91,10 @@ const HomeScreen = ({ navigation }) => {
                   <View style={{ padding: 15, }}>
                     <ProductCard
                       image={Assets.products.product3}
-                      text1={'$14.80'}
-                      text2={'$17.80'}
+                      text1={item.id}
+                      text2={item.userId}
                       backgroundColor={'#1A1A1A'}
-                      description="Koko Ranch Cannabis Product Name Here"
+                      description={item.body}
                       products={true}
                       // image={Assets.products.product2}
                       width={154}
@@ -156,6 +178,9 @@ const HomeScreen = ({ navigation }) => {
                 OnpresCard={() => {
                   navigation.navigate('AssismentScreen');
                 }}
+                text1={'All '}
+                text2={' Products'}
+                text3={'See All'}
                 img={Assets.BackgrounImages.bg1}
                 text="Fitness Assesment"
               />
@@ -196,6 +221,9 @@ const HomeScreen = ({ navigation }) => {
                 OnpresCard={() => {
                   navigation.navigate('AssismentScreen');
                 }}
+                text1={''}
+                text2={'Plants'}
+                text3={'See All'}
                 img={Assets.BackgrounImages.bg1}
                 text="Fitness Assesment"
               />
@@ -232,13 +260,17 @@ const HomeScreen = ({ navigation }) => {
             </View>
             <View style={{
               flex: 1,
-              backgroundColor: 'pink',
-              paddingHorizontal: 15
+              // backgroundColor: 'pink',
+              paddingHorizontal: 15,
+
             }}>
               <ProductCardSm
                 OnpresCard={() => {
                   navigation.navigate('AssismentScreen');
                 }}
+                text1={''}
+                text2={'Services'}
+                text3={''}
                 img={Assets.BackgrounImages.bg1}
                 text="Fitness Assesment"
               />
@@ -253,7 +285,18 @@ const HomeScreen = ({ navigation }) => {
                   return (
                     <>
                       <View style={{ padding: 25 }}>
-
+                        <ProductCard
+                          image={item.image}
+                          backgroundColor={'#1A1A1A'}
+                          description="Koko Ranch Cannabis Product Name Here"
+                          products={true}
+                          // image={Assets.products.product2}
+                          width={150}
+                          height={150}
+                          borderRadius={20}
+                          color="#f2f"
+                          fontWeight="bold"
+                        />
                       </View>
                     </>
                   );

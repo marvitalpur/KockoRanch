@@ -6,7 +6,7 @@ import {
   TouchableOpacity,
   ImageBackground,
 } from 'react-native';
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { SafeAreaView } from 'react-native-safe-area-context';
 import { KeyboardAwareScrollView } from 'react-native-keyboard-aware-scroll-view';
 import { HEIGHT, WIDTH } from '../../assets/constatnts/Dimentions';
@@ -22,23 +22,22 @@ const Login = ({ navigation }) => {
     username: '',
     password: '',
   });
-
+  const [state, setState] = useState(undefined)
   const [rememberMe, setRememberMe] = useState(false);
+  const getApiData = async () => {
 
-  const SaveData = async () => {
-    console.warn(username)
-    // const url = ";
-    // let Result = await fetch(url, {
-
-    //   method: "POST",
-    //   headers: { "Content-type": "application/json" },
-    //   body: JSON.stringify(data)
-    // }),
-
-    //   result = Result.json(),
-
+    const url = "https://jsonplaceholder.typicode.com/posts";
+    let result = await fetch(url);
+    // console.warn('hello')
+    result = await result.json();
+    // console.log(result);
+    setState(result)
 
   }
+
+  useEffect(() => {
+    getApiData();
+  }, [])
   return (
 
     <SafeAreaView style={styles.container}>
@@ -49,6 +48,11 @@ const Login = ({ navigation }) => {
         <View style={{ paddingTop: 25, alignSelf: 'center' }}>
           <LogoSvgs />
         </View>
+        {state ?
+          <View style={{ backgroundColor: 'yellow' }}>
+            <Text>{state.userId}</Text>
+            <Text>{state.title}</Text>
+          </View> : null}
         <View style={{ paddingHorizontal: 25 }}>
           <View style={styles.box}>
             <KeyboardAwareScrollView

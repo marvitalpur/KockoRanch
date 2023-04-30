@@ -17,6 +17,7 @@ const StackNavigator = () => {
       <Stack.Screen name="Splash" component={Splash} />
       <Stack.Screen name="Login" component={Login} />
       <Stack.Screen name='SignUp' component={SignUp} />
+      <Stack.Screen name='HomeScreen' component={HomeScreen} />
       <Stack.Screen name="DrawerNavigator" component={DrawerNavigator} />
     </Stack.Navigator>
   );
