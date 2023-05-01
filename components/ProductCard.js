@@ -17,6 +17,7 @@ const ProductCard = ({
   products,
   text2,
   text1,
+  fontSize
 }) => {
   // console.log(image);
   return (
@@ -69,7 +70,8 @@ const ProductCard = ({
 
       <Text
         numberOfLines={1}
-        style={[styles.productName, { fontWeight: fontWeight, color: color }]}>
+        style={[styles.productName,
+        { fontWeight: fontWeight, color: color, fontSize: fontSize }]}>
         {name}
       </Text>
       <Text numberOfLines={3} style={styles.productDesc}>

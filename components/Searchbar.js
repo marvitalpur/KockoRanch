@@ -1,11 +1,11 @@
-import {StyleSheet, Text, TouchableOpacity, View} from 'react-native';
+import { StyleSheet, Text, TouchableOpacity, View, TextInput } from 'react-native';
 import React from 'react';
 import Colors from '../assets/constatnts/Colors';
-import {TextInput} from 'react-native-paper';
-import {SearchIcon} from '../assets/svgs/iconsSvgs';
+
+import { SearchIcon } from '../assets/svgs/iconsSvgs';
 import Icon from 'react-native-vector-icons/Feather';
 
-const Searcbar = ({setIsTyping, text, setText, onPressLeft, placeholder}) => {
+const Searcbar = ({ setIsTyping, text, setText, onPressLeft, placeholder }) => {
   return (
     <View style={styles.container}>
       <View style={styles.btn}>
@@ -19,21 +19,21 @@ const Searcbar = ({setIsTyping, text, setText, onPressLeft, placeholder}) => {
             onSubmitEditing={() => setIsTyping(true)}
             autoFocus={false}
             placeholder={placeholder}
-            placeholderTextColor={'#ffff'}
+            placeholderTextColor={Colors.textColor.textColor3}
             value={text}
             onChangeText={setText}
             returnKeyType={'Search anything you need...'}
             style={{
               backgroundColor: '#000',
               color: '#000',
-              height: 36,
+              height: 40,
               color: '#fff',
             }}
           />
         </View>
         <TouchableOpacity
           onPress={onPressLeft}
-          style={{width: 24, height: 24, padding: 5, paddingLeft: 5}}>
+          style={{ width: 24, height: 24, padding: 5, paddingLeft: 5 }}>
           <Icon name="search" color={'#ffff'} />
         </TouchableOpacity>
       </View>

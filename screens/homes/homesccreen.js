@@ -7,20 +7,20 @@ import {
   Text,
   View,
 } from 'react-native';
-import React, {useEffect, useState} from 'react';
-import {SafeAreaView} from 'react-native-safe-area-context';
+import React, { useEffect, useState } from 'react';
+import { SafeAreaView } from 'react-native-safe-area-context';
 import Colors from '../../assets/constatnts/Colors';
 import ProductCard from '../../components/ProductCard';
 import ProductCardSm from '../../components/ProductCardSm';
-import {HEIGHT, WIDTH} from '../../assets/constatnts/Dimentions';
+import { HEIGHT, WIDTH } from '../../assets/constatnts/Dimentions';
 import Assets from '../../assets';
 import ProductCardlg from '../../components/ProductCardLG';
-import {FlatList} from 'react-native-gesture-handler';
+import { FlatList } from 'react-native-gesture-handler';
 import ButtonComponent from '../../components/ButtonComponent';
 import Searcbar from '../../components/Searchbar';
 import Header from '../../components/Header';
 
-const HomeScreen = ({navigation}) => {
+const HomeScreen = ({ navigation }) => {
   const [bgColor, SetBgColor] = useState(false);
   const [Data, setData] = useState([]);
   const getApiData = async () => {
@@ -33,13 +33,22 @@ const HomeScreen = ({navigation}) => {
     getApiData();
   }, []);
   const data = [
-    {image: Assets.services.services1},
-    {image: Assets.services.services2},
-    {image: Assets.services.services3},
-    {image: Assets.services.services4},
-    {image: Assets.services.services5},
+    { image: Assets.products.oilbotel1 },
+    { image: Assets.services.services2 },
+    { image: Assets.services.services3 },
+    { image: Assets.services.services4 },
+    { image: Assets.services.services5 },
     {},
   ];
+  const data2 = [
+    { image: Assets.bottel.bottel4 },
+    { image: Assets.bottel.bottel2 },
+    { image: Assets.bottel.bottel3 },
+    { image: Assets.bottel.bottel4 },
+    { image: Assets.bottel.bottel5 },
+    { text: 'View All{ \n} Categories' },
+
+  ]
   return (
     <SafeAreaView style={styles.container}>
       <ImageBackground
@@ -49,15 +58,16 @@ const HomeScreen = ({navigation}) => {
         <ScrollView
           bounces={false}
           showsVerticalScrollIndicator={true}
-          contentContainerStyle={{flexGrow: 1}}>
-          <View style={{flex: 1, paddingHorizontal: 20}}>
-            <View style={{marginVertical: 25, flexDirection: 'row'}}>
-              <View style={{paddingHorizontal: 5}}>
-                <Header iconname={'bars'} />
+          contentContainerStyle={{ flexGrow: 1 }}>
+          <View style={{ flex: 1, paddingHorizontal: 20 }}>
+            <View style={{ marginVertical: 25, flexDirection: 'row' }}>
+              <View style={{ paddingHorizontal: 5 }}>
+                <Header iconname={'bars'}
+                  onPress={() => navigation.openDrawer()} />
               </View>
-              <Searcbar />
+              <Searcbar placeholder={'Search anything you need..'} />
             </View>
-            <View style={{height: HEIGHT / 3.6}}>
+            <View style={{ height: HEIGHT / 3.6 }}>
               <ProductCardlg
                 image1
                 BtnTouchable1
@@ -84,10 +94,10 @@ const HomeScreen = ({navigation}) => {
             // numColumns={2}
             horizontal={true}
             showsHorizontalScrollIndicator={true}
-            renderItem={({item, index}) => {
+            renderItem={({ item, index }) => {
               return (
                 <>
-                  <View style={{padding: 15}}>
+                  <View style={{ padding: 15 }}>
                     <ProductCard
                       image={Assets.products.product3}
                       text1={item.id}
@@ -109,7 +119,7 @@ const HomeScreen = ({navigation}) => {
           />
 
           <View style={[styles.detailProduct, {}]}>
-            <View style={{marginTop: 25, paddingHorizontal: 15}}>
+            <View style={{ marginTop: 25, paddingHorizontal: 15 }}>
               <View
                 style={{
                   // paddingTop: 15,
@@ -128,14 +138,14 @@ const HomeScreen = ({navigation}) => {
                   }}
                 />
               </View>
-              <View style={{marginTop: 15}}>
-                <Text style={[styles.text, {fontSize: 12, color: '#14A384'}]}>
+              <View style={{ marginTop: 15 }}>
+                <Text style={[styles.text, { fontSize: 12, color: '#14A384' }]}>
                   INFORMATION
                 </Text>
                 <Text
                   style={[
                     styles.text,
-                    {fontSize: 20, paddingTop: 5, color: '#ffff'},
+                    { fontSize: 20, paddingTop: 5, color: '#ffff' },
                   ]}>
                   About KoKo Ranch
                 </Text>
@@ -154,7 +164,7 @@ const HomeScreen = ({navigation}) => {
                   aliquyam erat, sed diam voluptua. At vero eos et accusam et
                   nonumy eirmod tempor.
                 </Text>
-                <View style={{marginTop: 15}} />
+                <View style={{ marginTop: 15 }} />
                 <ButtonComponent
                   btnfonSize={10}
                   borderRadius={12}
@@ -168,7 +178,7 @@ const HomeScreen = ({navigation}) => {
               </View>
             </View>
 
-            <View style={{flex: 1, paddingHorizontal: 15}}>
+            <View style={{ flex: 1, paddingHorizontal: 15 }}>
               <ProductCardSm
                 OnpresCard={() => {
                   navigation.navigate('AssismentScreen');
@@ -180,22 +190,23 @@ const HomeScreen = ({navigation}) => {
                 text="Fitness Assesment"
               />
             </View>
-            <View style={{paddingHorizontal: 15}}>
+            <View style={{ paddingHorizontal: 15 }}>
               <FlatList
-                data={data}
+                data={data2}
                 numColumns={3}
-                renderItem={({item, index}) => {
+                renderItem={({ item, index }) => {
                   return (
                     <>
-                      <View style={{padding: 15, marginTop: 10}}>
+                      <View style={{ padding: 15, marginTop: 10 }}>
                         <ProductCard
-                          name={'product'}
+                          name={item.text}
                           backgroundColor={'#CAEAE3'}
-                          image={Assets.products.product2}
+                          image={item.image}
                           width={95}
                           height={95}
+                          fontSize={10}
                           borderRadius={100}
-                          color="#f2f"
+                          color="#000"
                           fontWeight="bold"
                         />
                       </View>
@@ -224,12 +235,12 @@ const HomeScreen = ({navigation}) => {
               <FlatList
                 data={data}
                 numColumns={2}
-                renderItem={({item, index}) => {
+                renderItem={({ item, index }) => {
                   return (
                     <>
-                      <View style={{padding: 25}}>
+                      <View style={{ padding: 25 }}>
                         <ProductCard
-                          image={Assets.products.product3}
+                          image={Assets.products.oilbotel1}
                           text1={'$14.80'}
                           text2={'$17.80'}
                           backgroundColor={'#1A1A1A'}
@@ -270,10 +281,10 @@ const HomeScreen = ({navigation}) => {
                 numColumns={2}
                 // horizontal={true}
                 // showsHorizontalScrollIndicator={true}
-                renderItem={({item, index}) => {
+                renderItem={({ item, index }) => {
                   return (
                     <>
-                      <View style={{padding: 25}}>
+                      <View style={{ padding: 25 }}>
                         <ProductCard
                           image={item.image}
                           backgroundColor={'#1A1A1A'}
