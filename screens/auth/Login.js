@@ -6,18 +6,18 @@ import {
   TouchableOpacity,
   ImageBackground,
 } from 'react-native';
-import React, { useEffect, useState } from 'react';
-import { SafeAreaView } from 'react-native-safe-area-context';
-import { KeyboardAwareScrollView } from 'react-native-keyboard-aware-scroll-view';
+import React, {useEffect, useState} from 'react';
+import {SafeAreaView} from 'react-native-safe-area-context';
+import {KeyboardAwareScrollView} from 'react-native-keyboard-aware-scroll-view';
 import Assets from '../../assets';
-import { Colors } from '../../assets/constatnts/Colors';
-import { LogoSvgs } from '../../assets/svgs/iconsSvgs';
+import {Colors} from '../../assets/constatnts/Colors';
+import {LogoSvgs} from '../../assets/svgs/iconsSvgs';
 import Icon from 'react-native-vector-icons/Feather';
 import ButtonComponent from '../../components/ButtonComponent';
 import Inputs from '../../components/Inputs';
-import { HEIGHT, WIDTH } from '../../assets/constatnts/Dimentions';
+import {HEIGHT, WIDTH} from '../../assets/constatnts/Dimentions';
 
-const Login = ({ navigation }) => {
+const Login = ({navigation}) => {
   // const [data, setData] = useState({
   //   username: '',
   //   password: '',
@@ -33,29 +33,29 @@ const Login = ({ navigation }) => {
     let result = await fetch(url, {
       method: 'POST',
       headers: {
-        "Content-Type": "application/json"
-      }, body: JSON.stringify({ Email, password })
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify({Email, password}),
     });
     result = await result.json();
-    if (result) {
-      console.log("data is heree ")
-    }
-  }
+    // if (result) {
+    //   console.log("data is heree ")
+    // }
+  };
   useEffect(() => {
     getApiData();
-  }, [])
+  }, []);
   return (
-
     <SafeAreaView style={styles.container}>
       <ImageBackground
         source={Assets.BackgrounImages.bg1}
         resizeMode="cover"
         style={styles.image}>
-        <View style={{ paddingTop: 25, alignSelf: 'center' }}>
+        <View style={{paddingTop: 25, alignSelf: 'center'}}>
           <LogoSvgs />
         </View>
 
-        <View style={{ paddingHorizontal: 25 }}>
+        <View style={{paddingHorizontal: 25}}>
           <View style={styles.box}>
             <KeyboardAwareScrollView
               keyboardShouldPersistTaps="handled"
@@ -63,7 +63,7 @@ const Login = ({ navigation }) => {
               enableAutomaticScroll={true}
               bounces={false}
               showsVerticalScrollIndicator={false}
-              contentContainerStyle={{ flexGrow: 1 }}>
+              contentContainerStyle={{flexGrow: 1}}>
               <View
                 style={{
                   paddingHorizontal: 25,
@@ -78,7 +78,7 @@ const Login = ({ navigation }) => {
                   }}>
                   Login
                 </Text>
-                <View style={{ marginTop: 10 }} />
+                <View style={{marginTop: 10}} />
                 <Text
                   style={{
                     fontWeight: '600',
@@ -88,13 +88,16 @@ const Login = ({ navigation }) => {
                   }}>
                   Enter Email or Phone
                 </Text>
-                <View style={{ marginTop: 10 }}>
-                  <Inputs placeholder="Email or Phone"
-                    textColor="#AAA" text={Email}
+                <View style={{marginTop: 10}}>
+                  <Inputs
+                    placeholder="Email or Phone"
+                    textColor="#AAA"
+                    text={Email}
                     setText={setEmail}
-                    formkey="Email" />
+                    formkey="Email"
+                  />
                 </View>
-                <View style={{ marginTop: 10 }} />
+                <View style={{marginTop: 10}} />
                 <Text
                   style={{
                     fontWeight: '600',
@@ -105,11 +108,14 @@ const Login = ({ navigation }) => {
                   }}>
                   Enter Password
                 </Text>
-                <View style={{ marginTop: 10 }} />
-                <Inputs placeholder="Enter Password"
-                  textColor="#AAA" text={password}
+                <View style={{marginTop: 10}} />
+                <Inputs
+                  placeholder="Enter Password"
+                  textColor="#AAA"
+                  text={password}
                   setText={setPassword}
-                  formkey="password" />
+                  formkey="password"
+                />
                 <View
                   style={{
                     flexDirection: 'row',
@@ -117,7 +123,6 @@ const Login = ({ navigation }) => {
                     alignItems: 'center',
                     marginTop: 10,
                   }}>
-
                   <TouchableOpacity
                     style={styles.touchable}
                     onPress={() => setRememberMe(!rememberMe)}>
@@ -130,7 +135,7 @@ const Login = ({ navigation }) => {
                           : Colors.textColor.TextColor1
                       }
                     />
-                    <Text style={[styles.text, { marginLeft: 5 }]}>
+                    <Text style={[styles.text, {marginLeft: 5}]}>
                       Remember me
                     </Text>
                   </TouchableOpacity>
@@ -156,9 +161,7 @@ const Login = ({ navigation }) => {
                   }}>
                   <TouchableOpacity
                     style={[]}
-                    onPress={() =>
-                      navigation.navigate('')
-                    }>
+                    onPress={() => navigation.navigate('')}>
                     <Text
                       style={[
                         styles.text,
@@ -168,22 +171,25 @@ const Login = ({ navigation }) => {
                         },
                       ]}>
                       Create Your Account?
-                      <Text style={{ color: '#ffff' }}>Signup</Text>
+                      <Text style={{color: '#ffff'}}>Signup</Text>
                     </Text>
                   </TouchableOpacity>
-                  <View style={{ marginTop: 15 }} />
+                  <View style={{marginTop: 15}} />
                   <ButtonComponent
                     btnfonSize={16}
                     borderRadius={50}
                     buttonText="Login"
                     buttonColor={Colors.Primary}
                     textColor={Colors.textColor.TextColor1}
-                    // onPress={() => navigation.replace('')}
-                    onPress={getApiData}
+                    onPress={() =>
+                      navigation.replace('MyDrawer', {
+                        screen: 'HomeScreen',
+                      })
+                    }
+                    // onPress={getApiData}
                     height={WIDTH <= 375 ? 40 : 55}
                     width={WIDTH <= 375 ? 125 : 175}
                   />
-
                 </View>
               </View>
             </KeyboardAwareScrollView>

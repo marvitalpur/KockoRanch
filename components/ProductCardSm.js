@@ -14,10 +14,8 @@ const ProductCardSm = ({ onPress, text1, text2, text3 }) => {
         <View style={{ flexDirection: 'row' }}>
           <Text style={[styles.hradertext, {}]}>
             {text1}
-
           </Text>
           <Text style={[styles.hradertext, { fontSize: 16, borderBottomWidth: 2, borderColor: Colors.Primary }]}>
-
             {text2}
           </Text>
         </View>

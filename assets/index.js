@@ -3,6 +3,8 @@ const Assets = {
     bg1: require('./images/BAckgroundMD.png'),
   },
   Logos: {
+    profile: require('./images/profile.png'),
+    avatarPlaceholder: require('./images/avatarPlaceholder.png'),
     HomeI1: require('./images/BAckgroundMD.png'),
     HomeI2: require('./images/productlg.png'),
   },
@@ -18,7 +20,7 @@ const Assets = {
     services3: require('./images/Service3.png'),
     services4: require('./images/Service4.png'),
     services5: require('./images/Pest Control.png'),
-  }
+  },
 };
 
 export default Assets;

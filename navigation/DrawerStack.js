@@ -1,151 +1,126 @@
-import React, { useState } from 'react';
-import { createDrawerNavigator } from '@react-navigation/drawer';
-import {
-  FlatList,
-  ImageBackground,
-  StyleSheet,
-  Text,
-  TouchableOpacity,
-  View,
-} from 'react-native';
-import { SafeAreaView } from 'react-native-safe-area-context';
-import HomeScreen from '../screens/homes/homesccreen';
-
-const DrawerNavigator = () => {
-  const Drawer = createDrawerNavigator();
+import {StyleSheet, Text, Image, View} from 'react-native';
+import React from 'react';
+import MyTabs from './TabNavigator';
+import {createDrawerNavigator} from '@react-navigation/drawer';
+import {SafeAreaView} from 'react-native-safe-area-context';
+import Assets from '../assets';
+import {LogoSvgs} from '../assets/svgs/iconsSvgs';
+import {Avatar, TouchableRipple} from 'react-native-paper';
+import {TouchableOpacity} from 'react-native';
+import {FlatList} from 'react-native';
+const Drawer = createDrawerNavigator();
+const MyDrawer = () => {
   return (
     <Drawer.Navigator
+      drawerContent={props => <CustomDrawerContent {...props} />}
       screenOptions={{
         headerShown: false,
         headerTransparent: true,
+
         animationTypeForReplace: 'push',
         animation: 'slide_from_right',
-        drawerStyle: { width: '100%' },
-      }}
-      drawerContent={props => <CustomDrawerContent {...props} />}>
-      {/* <Drawer.Screen name="Home" component={Home}/> */}
-      <Drawer.Screen name='HomeScreen' component={HomeScreen} />
+        drawerStyle: {width: '100%'},
+      }}>
+      <Drawer.Screen name="MyTabs" component={MyTabs} />
     </Drawer.Navigator>
   );
 };
-export default DrawerNavigator;
-const CustomDrawerContent = props => {
-  const [activeButton, setActiveButton] = useState(0);
-  const [checked, setChecked] = useState('first');
+export default MyDrawer;
+const CustomDrawerContent = () => {
   return (
-    <ImageBackground
-      // source={Assets.backgroundImages.menuBackground}
-      resizeMode="cover"
-      style={styles.image}>
-      <SafeAreaView style={styles.container}>
-        <View style={{ paddingHorizontal: 15 }}></View>
-        <View style={{ paddingHorizontal: 30, marginTop: 25 }}>
-          <View style={{ width: 100, marginBottom: 25 }}>
-            <TouchableOpacity
-              style={{
-                width: 100,
-                height: 100,
-                borderWidth: 2,
-                borderRadius: 100,
-              }}></TouchableOpacity>
-            <Text style={{}}>Alen Matias</Text>
-            <Text style={{}}>@Alenmatias</Text>
+    <SafeAreaView style={styles.container}>
+      <View style={{flex: 1}}>
+        <View style={{paddingHorizontal: 30}}>
+          <View style={{paddingTop: 25, alignSelf: 'center'}}>
+            <LogoSvgs />
           </View>
-          {/* <SidebarButton /> */}
-        </View>
-        <FlatList
-          contentContainerStyle={{
-            flexGrow: 1,
-            // backgroundColor: 'red',
-            paddingLeft: 25,
-          }}
-          ItemSeparatorComponent={<View style={{ marginVertical: -10 }} />}
-          data={sidebarData}
-          scrollEnabled={false}
-          renderItem={({ item, index }) => (
-            <SidebarButton
-              item={item}
-              index={index}
-              setActiveButton={setActiveButton}
-              activeButton={activeButton}
-              navigation={props.navigation}
+          <View
+            style={{
+              padding: 10,
+              flexDirection: 'row',
+              borderWidth: 1,
+              borderRadius: 10,
+            }}>
+            <TouchableOpacity
+              onPress={() => props.navigation.navigate('Profile')}
+              style={{
+                width: 40,
+                height: 38,
+                borderWidth: 1,
+                borderRadius: 10,
+                // borderColor: Colors.primary,
+              }}>
+              <Avatar.Image
+                size={38}
+                style={{
+                  width: '100%',
+                  height: '100%',
+                  // borderRadius: 10,
+                  backgroundColor: 'transparent',
+                  justifyContent: 'center',
+                  alignItems: 'center',
+                }}
+                source={Assets.Logos.profile}
+              />
+            </TouchableOpacity>
+            <Text style={{paddingTop: 10, paddingLeft: 20}}>
+              Hi! Alex Martina
+            </Text>
+          </View>
+          <View>
+            <FlatList
+              data={data}
+              renderItem={({item}) => {
+                return (
+                  <>
+                    <View>
+                      <Text>ghdfhn</Text>
+                    </View>
+                  </>
+                );
+              }}
             />
-          )}
-        />
-      </SafeAreaView>
-    </ImageBackground>
+          </View>
+          <View
+            style={{
+              padding: 10,
+              flexDirection: 'row',
+              borderWidth: 1,
+              borderRadius: 10,
+            }}>
+            <TouchableOpacity
+              onPress={() => props.navigation.navigate('Profile')}
+              style={{
+                width: 40,
+                height: 38,
+                borderWidth: 1,
+                borderRadius: 10,
+                // borderColor: Colors.primary,
+              }}>
+              <Avatar.Image
+                size={38}
+                style={{
+                  width: '100%',
+                  height: '100%',
+                  // borderRadius: 10,
+                  backgroundColor: 'transparent',
+                  justifyContent: 'center',
+                  alignItems: 'center',
+                }}
+                source={Assets.Logos.profile}
+              />
+            </TouchableOpacity>
+            <Text style={{paddingTop: 10, paddingLeft: 20}}>
+              Hi! Alex Martina
+            </Text>
+          </View>
+        </View>
+      </View>
+    </SafeAreaView>
   );
 };
-const SidebarButton = ({
-  activeButton,
-  setActiveButton,
-  item,
-  index,
-  navigation,
-}) => {
-  return (
-    <TouchableOpacity
-      activeOpacity={0}
-      onPress={() => {
-        setActiveButton(index);
-        navigation.navigate(item.screen);
-      }}
-      style={{
-        width: 150,
-        height: 75,
-        borderRadius: 50,
-        justifyContent: 'center',
-        paddingLeft: 15,
-        shadowColor: '#000',
-        shadowOffset: {
-          width: 0,
-          height: 7,
-        },
-        shadowOpacity: 0.43,
-        shadowRadius: 9.51,
-
-        // elevation: 12,
-      }}>
-      <View style={{}} />
-      <View style={{}} />
-      <View style={{}} />
-      <Text style={{}}>{item.screen}</Text>
-    </TouchableOpacity>
-  );
-};
+const data = [{}, {}, {}];
 
 const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    // backgroundColor: Colors.secondary,
-  },
-  image: { flex: 1 },
+  container: {backgroundColor: 'yellow', flex: 1},
 });
-
-const sidebarData = [
-  {
-    id: 1,
-    screen: 'HomeScreen',
-  },
-  {
-    id: 2,
-    screen: 'Shope',
-  },
-  {
-    id: 3,
-    screen: 'MyOrders',
-  },
-  {
-    id: 3,
-    screen: 'Cart',
-  },
-
-  {
-    id: 6,
-    screen: 'Profile',
-  },
-  {
-    id: 7,
-    screen: 'Settings',
-  },
-];
