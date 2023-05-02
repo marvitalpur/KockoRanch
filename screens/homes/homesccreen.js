@@ -209,7 +209,7 @@ const HomeScreen = ({navigation}) => {
                 text="Fitness Assesment"
               />
             </View>
-            <View style={{marginTop: 25, alignSelf: 'center'}}>
+            <View style={{marginTop: 25}}>
               <FlatList
                 data={data2}
                 numColumns={3}
