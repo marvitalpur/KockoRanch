@@ -51,9 +51,9 @@ const SignUp = ({ navigation }) => {
                     fontWeight: '600',
                     fontSize: 22,
                     color: Colors.textColor.TextColor1,
-                    marginTop: 15,
+                    // marginTop: 15,
                   }}>
-                  Login
+                  Sign Up as Buyer
                 </Text>
                 <View style={{ marginTop: 10 }} />
                 <Text
@@ -63,23 +63,83 @@ const SignUp = ({ navigation }) => {
                     color: Colors.textColor.TextColor1,
                     marginTop: 15,
                   }}>
-                  Enter Email or Phone
+                  First Name
                 </Text>
                 <View style={{ marginTop: 10 }}>
-                  {/* <Inputs placeholder="Email or Phone" textColor="#fff" /> */}
+                  <Inputs placeholder="First Name" textColor="#fff" />
                 </View>
-                <View style={{ marginTop: 10 }} />
+                <View style={{ marginTop: 5 }} />
                 <Text
                   style={{
                     fontWeight: '600',
                     fontSize: 14,
-                    color: Colors.textColor.Primary,
+                    color: Colors.textColor.TextColor1,
+                    marginTop: 5,
+                  }}>
+                  Last Name
+                </Text>
+                <View style={{ marginTop: 5 }} />
+                <Inputs placeholder="Last Name" textColor="#fff" />
+                <Text
+                  style={{
+                    fontWeight: '600',
+                    fontSize: 14,
+                    color: Colors.textColor.TextColor1,
                     marginTop: 15,
                   }}>
-                  Enter Password
+                  Enter Email
                 </Text>
-                <View style={{ marginTop: 10 }} />
-                {/* <Inputs placeholder="Enter Password" textColor="#fff" /> */}
+                <View style={{ marginTop: 10 }}>
+                  <Inputs placeholder="Enter Email" textColor="#fff" />
+                </View>
+                <View style={{ marginTop: 5 }} />
+                <Text
+                  style={{
+                    fontWeight: '600',
+                    fontSize: 14,
+                    color: Colors.textColor.TextColor1,
+                    marginTop: 5,
+                  }}>
+                  Enter Phone Number
+                </Text>
+                <View style={{ marginTop: 5 }} />
+                <Inputs placeholder="+1222567890-998" textColor="#fff" />
+                <View style={{ marginTop: 5 }} />
+                <Text
+                  style={{
+                    fontWeight: '600',
+                    fontSize: 14,
+                    color: Colors.textColor.TextColor1,
+                    marginTop: 5,
+                  }}>
+                  Create New Password
+                </Text>
+                <View style={{ marginTop: 5 }} />
+                <Inputs placeholder="Enter Email" textColor="#fff" />
+                <View style={{ marginTop: 5 }} />
+                <Text
+                  style={{
+                    fontWeight: '600',
+                    fontSize: 14,
+                    color: Colors.textColor.TextColor1,
+                    marginTop: 5,
+                  }}>
+                  Create New Password
+                </Text>
+                <View style={{ marginTop: 5 }} />
+                <Inputs placeholder="Enter password" textColor="#fff" />
+                <View style={{ marginTop: 5 }} />
+                <Text
+                  style={{
+                    fontWeight: '600',
+                    fontSize: 14,
+                    color: Colors.textColor.TextColor1,
+                    marginTop: 5,
+                  }}>
+                  Confirm Password
+                </Text>
+                <View style={{ marginTop: 5 }} />
+                <Inputs placeholder="Enter Password" textColor="#fff" />
                 <View
                   style={{
                     flexDirection: 'row',
@@ -99,59 +159,44 @@ const SignUp = ({ navigation }) => {
                           : Colors.textColor.TextColor1
                       }
                     />
-                    <Text style={[styles.text, { marginLeft: 5 }]}>
-                      Remember me
-                    </Text>
-                  </TouchableOpacity>
-                  <TouchableOpacity style={styles.touchable}>
                     <Text
                       style={[
                         styles.text,
                         {
-                          textDecorationLine: 'underline',
-                          Colors: Colors.textColor.TextColor1,
+                          // textDecorationLine: 'underline',
+                          color: Colors.Tertiary,
+                          paddingLeft: 10
                         },
                       ]}>
-                      Forgot Password?
+                      I agree with the
+                      <Text style={{ color: Colors.Primary }}>Privacy Policy </Text>
+                      and
+                      <Text style={{ color: Colors.Primary }}> Terms and Conditions </Text>
                     </Text>
+
                   </TouchableOpacity>
                 </View>
-                <View
-                  style={{
-                    flex: 1,
-                    alignItems: 'center',
-                    justifyContent: 'space-evenly',
-                    marginTop: 15,
-                  }}>
+                <TouchableOpacity
+                  style={[styles.touchable, { alignSelf: 'center', paddingTop: 15 }]}
+                  onPress={() =>
+                    navigation.navigate('Signup')
+                  }>
                   <Text
                     style={[
                       styles.text,
                       {
                         // textDecorationLine: 'underline',
-                        color: Colors.Primary,
+                        color: Colors.Tertiary,
+                        textAlign: 'center', fontSize: 12
                       },
                     ]}>
-                    Create Your Account?
-                    <Text style={{ color: '#ffff' }}>Signup</Text>
+                    Already have an Account?
+                    <Text style={{ color: Colors.Primary }}> login </Text>
                   </Text>
-                  <View style={{ marginTop: 15 }} />
-                  <ButtonComponent
-                    btnfonSize={16}
-                    borderRadius={50}
-                    buttonText="Login"
-                    buttonColor={Colors.Primary}
-                    textColor={Colors.textColor.TextColor1}
-                    onPress={() => navigation.replace('HomeScreen')}
-                    height={WIDTH <= 375 ? 40 : 55}
-                    width={WIDTH <= 375 ? 125 : 175}
-                  />
-                  <TouchableOpacity
-                    style={[styles.touchable, { width: 175 }]}
-                    onPress={() =>
-                      navigation.navigate('Signup')
-                    }></TouchableOpacity>
-                </View>
+                </TouchableOpacity>
+
               </View>
+
             </KeyboardAwareScrollView>
           </View>
         </View>
@@ -172,11 +217,12 @@ const styles = StyleSheet.create({
     // alignItems: 'center',
   },
   box: {
-    paddingTop: 15,
+    paddingTop: 10,
+    paddingBottom: 25,
     backgroundColor: Colors.blackBg,
     opacity: 0.7,
     // width: WIDTH,
-    height: HEIGHT / 1.8,
+    height: HEIGHT,
     // alignItems: 'center',
     marginTop: 25,
     borderRadius: 5,
