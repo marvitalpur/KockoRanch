@@ -4,6 +4,7 @@ import {TouchableOpacity} from 'react-native';
 import {FAB} from 'react-native-paper';
 import {WIDTH} from '../assets/constatnts/Dimentions';
 import Colors from '../assets/constatnts/Colors';
+import Icon from 'react-native-vector-icons/Feather';
 
 const Header = ({onPress, iconname}) => {
   return (

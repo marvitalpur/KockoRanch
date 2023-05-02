@@ -15,6 +15,7 @@ import {
   Cart,
   Categories,
   GreenCart,
+  GreenHome,
   HomeSVg,
   Homesvg,
   WCart,
@@ -30,9 +31,9 @@ const MyTabs = props => {
       screenOptions={{
         headerShown: false,
         headerLeft: () => <></>,
-        // unmountOnBlur: true,
-        // lazy: true,
-        // tabBarActiveTintColor: '#1C5C2E',
+        unmountOnBlur: true,
+        lazy: true,
+        tabBarActiveTintColor: '#14A384',
         tabBarStyle: {
           height: 70,
           position: 'absolute',
@@ -52,7 +53,7 @@ const MyTabs = props => {
         options={{
           headerShown: false,
           tabBarLabel: 'Home',
-          tabBarIcon: ({focused}) => (focused ? <Homesvg /> : <Categories />),
+          tabBarIcon: ({focused}) => (focused ? <GreenHome /> : <Homesvg />),
         }}
       />
       <Tab.Screen
