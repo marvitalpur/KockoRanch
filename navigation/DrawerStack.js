@@ -1,16 +1,16 @@
-import { StyleSheet, Text, Image, View, Settings } from 'react-native';
-import React, { useState } from 'react';
+import {StyleSheet, Text, Image, View, Settings} from 'react-native';
+import React, {useState} from 'react';
 import MyTabs from './TabNavigator';
-import { createDrawerNavigator } from '@react-navigation/drawer';
-import { SafeAreaView } from 'react-native-safe-area-context';
+import {createDrawerNavigator} from '@react-navigation/drawer';
+import {SafeAreaView} from 'react-native-safe-area-context';
 import Assets from '../assets';
-import { LogoSvgs, SearchIcon } from '../assets/svgs/iconsSvgs';
-import { Avatar, TouchableRipple } from 'react-native-paper';
-import { TouchableOpacity } from 'react-native';
-import { FlatList } from 'react-native';
+import {LogoSvgs, SearchIcon} from '../assets/svgs/iconsSvgs';
+import {Avatar, TouchableRipple} from 'react-native-paper';
+import {TouchableOpacity} from 'react-native';
+import {FlatList} from 'react-native';
 import Colors from '../assets/constatnts/Colors';
-import { WIDTH } from '../assets/constatnts/Dimentions';
-import { Home, LogOut, Phone, Setting, Tractor } from '../assets/svgs/Drawersvg';
+import {WIDTH} from '../assets/constatnts/Dimentions';
+import {Home, LogOut, Phone, Setting, Tractor} from '../assets/svgs/Drawersvg';
 import {
   Cart,
   Categories,
@@ -23,6 +23,7 @@ import AccountScreen from '../screens/homes/AccountScreen';
 import HomeScreen from '../screens/homes/homesccreen';
 import CategoryScreen from '../screens/homes/CategoryScreen';
 import SettingScreen from '../screens/homes/SettingScreen';
+import ContactUS from '../screens/auth/ContactUS';
 const Drawer = createDrawerNavigator();
 const MyDrawer = () => {
   return (
@@ -33,14 +34,13 @@ const MyDrawer = () => {
         headerTransparent: true,
         animationTypeForReplace: 'push',
         animation: 'slide_from_right',
-        drawerStyle: { width: WIDTH / 1.5 },
+        drawerStyle: {width: WIDTH / 1.5},
       }}>
-
-
       <Drawer.Screen name="MyTabs" component={MyTabs} />
       <Drawer.Screen name="Home" component={HomeScreen} />
       <Drawer.Screen name="Categories" component={CategoryScreen} />
       <Drawer.Screen name="SettingScreen" component={SettingScreen} />
+      <Drawer.Screen name="Contact us" component={ContactUS} />
     </Drawer.Navigator>
   );
 };
@@ -57,7 +57,7 @@ const CustomDrawerContent = props => {
           marginTop: 25,
         }}>
         <View style={{}}>
-          <View style={{ paddingBottom: 25 }}>
+          <View style={{paddingBottom: 25}}>
             <LogoSvgs />
           </View>
           <Text
@@ -76,7 +76,7 @@ const CustomDrawerContent = props => {
         </View>
         {/* <SidebarButton /> */}
       </View>
-      <View style={{ paddingTop: 15, alignSelf: 'center', paddingLeft: 25 }}>
+      <View style={{paddingTop: 15, alignSelf: 'center', paddingLeft: 25}}>
         <View
           style={{
             width: 200,
@@ -114,7 +114,7 @@ const CustomDrawerContent = props => {
           </Text>
         </View>
       </View>
-      <View style={{ paddingLeft: 25, marginTop: 15 }}>
+      <View style={{paddingLeft: 25, marginTop: 15}}>
         <FlatList
           contentContainerStyle={{
             flexGrow: 1,
@@ -125,8 +125,8 @@ const CustomDrawerContent = props => {
           ItemSeparatorComponent={<View style={{}} />}
           data={sidebarData}
           scrollEnabled={false}
-          renderItem={({ item, index }) => (
-            <View style={{ margin: 10 }}>
+          renderItem={({item, index}) => (
+            <View style={{margin: 10}}>
               <SidebarButton
                 item={item}
                 index={index}
@@ -139,7 +139,7 @@ const CustomDrawerContent = props => {
           )}
         />
       </View>
-      <View style={{ paddingTop: 15, alignSelf: 'center', paddingLeft: 30 }}>
+      <View style={{paddingTop: 15, alignSelf: 'center', paddingLeft: 30}}>
         <View
           style={{
             width: 200,
@@ -161,7 +161,7 @@ const CustomDrawerContent = props => {
             shadowRadius: 9.51,
             // elevation: 12,
           }}>
-          <View style={{ paddingRight: 25 }}>
+          <View style={{paddingRight: 25}}>
             <LogOut />
           </View>
           <Text
@@ -227,7 +227,7 @@ const SidebarButton = ({
           borderRadius: 75,
         }}
       />
-      <View style={{ padding: 10 }}>{Icon1}</View>
+      <View style={{padding: 10}}>{Icon1}</View>
       <View
         style={{
           position: 'absolute',
@@ -237,7 +237,7 @@ const SidebarButton = ({
           width: 300,
           height: 45,
           borderRadius: 15,
-          transform: [{ rotate: '6deg' }],
+          transform: [{rotate: '6deg'}],
         }}
       />
       <View
@@ -248,7 +248,7 @@ const SidebarButton = ({
           width: 300,
           height: 45,
           borderRadius: 15,
-          transform: [{ rotate: '-6deg' }],
+          transform: [{rotate: '-6deg'}],
         }}
       />
       <Text
@@ -292,7 +292,7 @@ const sidebarData = [
     screen: 'Contact us',
     Icon1: <Phone />,
   },
-  { id: 6, screen: 'Cart', Icon1: <WCart /> },
+  {id: 6, screen: 'Cart', Icon1: <WCart />},
 ];
 
 const styles = StyleSheet.create({
@@ -300,5 +300,5 @@ const styles = StyleSheet.create({
     flex: 1,
     backgroundColor: Colors.Secondary,
   },
-  image: { flex: 1 },
+  image: {flex: 1},
 });
