@@ -1,24 +1,32 @@
-import { StyleSheet, Text, TouchableOpacity, View, Image } from 'react-native';
-import React from 'react';
-import { WIDTH } from '../assets/constatnts/Dimentions';
+import {StyleSheet, Text, TouchableOpacity, View, Image} from 'react-native';
+import React, {useState} from 'react';
+import {WIDTH} from '../assets/constatnts/Dimentions';
 import Colors from '../assets/constatnts/Colors';
+import {CustomRating} from './MyRating';
 const ProductCard = ({
   name,
   image,
   description,
+  ratings,
   price,
   index,
   fontWeight,
   borderRadius,
   height,
+  Ratingsline,
   backgroundColor,
   width,
   color,
   products,
   text2,
   text1,
-  fontSize
+  fontSize,
 }) => {
+  const [rating, setRating] = useState(0);
+
+  const handleRatingSelect = ratingValue => {
+    setRating(ratingValue);
+  };
   // console.log(image);
   return (
     <TouchableOpacity
@@ -47,7 +55,7 @@ const ProductCard = ({
               // backgroundColor: 'grey',
               position: 'absolute',
               top: -20,
-              left: -5
+              left: -5,
             }}
           />
         ) : (
@@ -70,21 +78,51 @@ const ProductCard = ({
 
       <Text
         numberOfLines={1}
-        style={[styles.productName,
-        { fontWeight: fontWeight, color: color, fontSize: fontSize }]}>
+        style={[
+          styles.productName,
+          {fontWeight: fontWeight, color: color, fontSize: fontSize},
+        ]}>
         {name}
       </Text>
       <Text numberOfLines={3} style={styles.productDesc}>
         {description}
       </Text>
+
       <View style={styles.priceBox}>
         <Text style={styles.priceText}>{text1}</Text>
-        <Text style={styles.priceText}>{text2}</Text>
+        <Text
+          style={[
+            styles.priceText,
+            {textDecorationLine: 'line-through', textDecorationStyle: 'solid'},
+          ]}>
+          {text2}
+        </Text>
       </View>
-      <View style={styles.priceBox}>
-        <Text style={styles.priceText}>{text1}</Text>
-        <Text style={styles.priceText}>{text2}</Text>
-      </View>
+
+      {Ratingsline && (
+        <>
+          <View style={styles.priceBox}>
+            <View style={styles.priceBox}>
+              <View style={styles.container}>
+                <CustomRating
+                  maxRating={7}
+                  onRatingSelected={handleRatingSelect}
+                />
+              </View>
+            </View>
+            <Text
+              numberOfLines={2}
+              style={[
+                styles.priceText,
+                {
+                  color: Colors.Primary,
+                },
+              ]}>
+              In Stock
+            </Text>
+          </View>
+        </>
+      )}
     </TouchableOpacity>
   );
 };
@@ -137,7 +175,7 @@ const styles = StyleSheet.create({
     marginTop: 5,
     alignItems: 'center',
     flexDirection: 'row',
-    justifyContent: 'space-between'
+    justifyContent: 'space-between',
   },
   priceText: {
     textAlign: 'center',

@@ -20,11 +20,13 @@ import ButtonComponent from '../../components/ButtonComponent';
 import Searcbar from '../../components/Searchbar';
 import Header from '../../components/Header';
 import ProductCircle from '../../components/PRoductsCircle';
+import CoverImgCard from './CoverImgCard';
 
 const HomeScreen = ({navigation}) => {
   const [bgColor, SetBgColor] = useState(0);
   const [Data, setData] = useState([]);
   const [isColor, setIsColor] = useState();
+  const [state, setState] = useState(0);
   const getApiData = async () => {
     const url = 'https://jsonplaceholder.typicode.com/posts';
     let result = await fetch(url);
@@ -47,27 +49,22 @@ const HomeScreen = ({navigation}) => {
     {
       image: Assets.bottel.bottel2,
       outertext: 'Plant Nutrients',
-      outericon: 'home',
     },
     {image: Assets.bottel.bottel3, outertext: 'Plant Media', outericon: 'home'},
     {
       image: Assets.bottel.bottel4,
       outertext: 'Plant Container',
-      outericon: 'home',
     },
     {
       image: Assets.bottel.bottel5,
       outertext: 'Floral Supplies',
-      outericon: 'home',
     },
     {
       text: 'View All{ \n} Categories',
       icon: 'Arrow',
     },
   ];
-  const handlepress = index => {
-    setIsColor(index);
-  };
+
   return (
     <SafeAreaView style={styles.container}>
       <ImageBackground
@@ -218,15 +215,15 @@ const HomeScreen = ({navigation}) => {
                     <>
                       <View style={{marginTop: 5, padding: 10}}>
                         <ProductCircle
-                          onPress={handlepress}
-                          outericon={item.outericon}
+                          onPress={() => (index === true ? ' pink' : 'green')}
+                          outericon={index ? 'chevron-down' : 'chevron-left'}
                           outertext={item.outertext}
                           name={item.text}
-                          backgroundColor={
-                            isColor === index ? '#14A384' : '#CAEAE3'
-                          }
+                          // backgroundColor={
+                          //   isColor === 0 ? '#CAEAE3' : '#14A384'
+                          // }
                           image={item.image}
-                          color2={'#fff'}
+                          // color2={isColor === index ? '#14A384' : '#CAEAE3'}
                           width={95}
                           height={95}
                           icon={item.icon}
@@ -266,6 +263,7 @@ const HomeScreen = ({navigation}) => {
                     <>
                       <View style={{padding: 25}}>
                         <ProductCard
+                          Ratingsline
                           image={Assets.products.oilbotel1}
                           text1={'$14.80'}
                           text2={'$17.80'}
@@ -328,6 +326,9 @@ const HomeScreen = ({navigation}) => {
                   );
                 }}
               />
+              <View style={{backgroundColor: 'green'}}>
+                <CoverImgCard coverimage={Assets.BackgrounImages.cover1} />
+              </View>
             </View>
           </View>
         </ScrollView>

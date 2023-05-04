@@ -56,7 +56,7 @@ const ContactUS = ({navigation}) => {
                 </Text>
                 <View style={{marginTop: 10}}>
                   <Inputs
-                    placeholder="Name"
+                    placeholde0r="Name"
                     textColor="#AAA"
                     text={data.Email}
                     setText={setData}

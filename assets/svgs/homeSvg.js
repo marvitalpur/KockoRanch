@@ -5,6 +5,7 @@ import Svg, {
   Line,
   Defs,
   Stop,
+  Rect,
   Circle,
   LinearGradient,
 } from 'react-native-svg';
@@ -183,5 +184,65 @@ const GreenHome = () => {
     </>
   );
 };
+const PotIcon = () => {
+  return (
+    <>
+      <Svg
+        id="Group_37032"
+        data-name="Group 37032"
+        xmlns="http://www.w3.org/2000/svg"
+        width="8.56"
+        height="11"
+        viewBox="0 0 8.56 11">
+        <Path
+          id="Icon_awesome-leaf"
+          data-name="Icon awesome-leaf"
+          d="M4.532.081A.129.129,0,0,0,4.3.071,1.423,1.423,0,0,1,3.053.8H2.389A1.594,1.594,0,0,0,.8,2.39a1.641,1.641,0,0,0,.012.17,3.97,3.97,0,0,1,2.377-.7.133.133,0,0,1,0,.266A3.281,3.281,0,0,0,.019,3.884a.266.266,0,0,0,.492.2,2.183,2.183,0,0,1,.6-.752,1.59,1.59,0,0,0,1.451.641,2.534,2.534,0,0,0,2.22-2.694,3.018,3.018,0,0,0-.247-1.2Z"
+          transform="translate(3.057 1.59) rotate(-11)"
+          fill="#05880e"
+        />
+        <Rect
+          id="Rectangle_2254"
+          data-name="Rectangle 2254"
+          width="7.159"
+          height="1.548"
+          transform="translate(0.477 5.472)"
+          fill="#8e623e"
+        />
+        <Path
+          id="Path_1830"
+          data-name="Path 1830"
+          d="M0,0H5.547l-.59,4H.59Z"
+          transform="translate(1.235 6.996)"
+          fill="#9c704d"
+        />
+        <Path
+          id="Icon_awesome-leaf-2"
+          data-name="Icon awesome-leaf"
+          d="M3.979,3.66a.113.113,0,0,1-.206.009,1.249,1.249,0,0,0-1.092-.637H2.1a1.4,1.4,0,0,1-1.4-1.4A1.441,1.441,0,0,1,.71,1.483,3.486,3.486,0,0,0,2.8,2.1a.117.117,0,0,0,0-.233A2.881,2.881,0,0,1,.017.321.233.233,0,0,1,.449.144,1.917,1.917,0,0,0,.973.8,1.4,1.4,0,0,1,2.247.241,2.225,2.225,0,0,1,4.2,2.606,2.649,2.649,0,0,1,3.979,3.66Z"
+          transform="translate(4.119 4.463) rotate(-169)"
+          fill="#05880e"
+        />
+        <Path
+          id="Path_1831"
+          data-name="Path 1831"
+          d="M4513.134-2736h3.019v1.544h-.831l-.595,3.98h-2.555a5.986,5.986,0,0,0,.961-2.578,7.8,7.8,0,0,0-.486-2.946Z"
+          transform="translate(-4508.557 2741.462)"
+          fill="#715935"
+          opacity="0.38"
+        />
+      </Svg>
+    </>
+  );
+};
 
-export {GreenCart, Cart, Categories, WCart, GreenHome, Homesvg, WCategories};
+export {
+  GreenCart,
+  Cart,
+  Categories,
+  WCart,
+  PotIcon,
+  GreenHome,
+  Homesvg,
+  WCategories,
+};

@@ -1,29 +1,37 @@
-import { FlatList, StyleSheet, Text, View } from 'react-native';
+import {FlatList, StyleSheet, Text, View} from 'react-native';
 import React from 'react';
-import { TouchableRipple } from 'react-native-paper';
-import { TouchableOpacity } from 'react-native-gesture-handler';
+import {TouchableRipple} from 'react-native-paper';
+import {TouchableOpacity} from 'react-native-gesture-handler';
 import ProductCard from './ProductCard';
 import Assets from '../assets';
-import { WIDTH } from '../assets/constatnts/Dimentions';
+import {WIDTH} from '../assets/constatnts/Dimentions';
 import Colors from '../assets/constatnts/Colors';
 
-const ProductCardSm = ({ onPress, text1, text2, text3 }) => {
+const ProductCardSm = ({onPress, text1, text2, text3}) => {
   return (
-    <View style={{}}>
+    <TouchableOpacity onPress={onPress} style={{}}>
       <View style={styles.header}>
-        <View style={{ flexDirection: 'row' }}>
-          <Text style={[styles.hradertext, {}]}>
-            {text1}
-          </Text>
-          <Text style={[styles.hradertext, { fontSize: 16, borderBottomWidth: 2, borderColor: Colors.Primary }]}>
+        <View style={{flexDirection: 'row'}}>
+          <Text style={[styles.hradertext, {}]}>{text1}</Text>
+          <Text
+            style={[
+              styles.hradertext,
+              {fontSize: 16, borderBottomWidth: 2, borderColor: Colors.Primary},
+            ]}>
             {text2}
           </Text>
         </View>
         <TouchableRipple onPress={onPress}>
-          <Text style={[styles.hradertext, { fontSize: 14, borderBottomWidth: 1, borderColor: '#ffff' }]}>{text3}</Text>
+          <Text
+            style={[
+              styles.hradertext,
+              {fontSize: 14, borderBottomWidth: 1, borderColor: '#ffff'},
+            ]}>
+            {text3}
+          </Text>
         </TouchableRipple>
       </View>
-    </View >
+    </TouchableOpacity>
   );
 };
 export default ProductCardSm;

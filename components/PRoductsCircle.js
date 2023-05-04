@@ -3,6 +3,7 @@ import React from 'react';
 import Icon from 'react-native-vector-icons/Feather';
 import {WIDTH} from '../assets/constatnts/Dimentions';
 import Colors from '../assets/constatnts/Colors';
+import {PotIcon} from '../assets/svgs/homeSvg';
 const ProductCircle = ({
   name,
   image,

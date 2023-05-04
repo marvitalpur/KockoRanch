@@ -1,6 +1,9 @@
 const Assets = {
   BackgrounImages: {
     bg1: require('./images/BAckgroundMD.png'),
+    cover1: require('./images/cover1.png'),
+    cover2: require('./images/cover2.png'),
+    cover3: require('./images/cover3.png'),
   },
   Logos: {
     profile: require('./images/profile.png'),
@@ -21,7 +24,6 @@ const Assets = {
     services3: require('./images/Service3.png'),
     services4: require('./images/Service4.png'),
     services5: require('./images/Pest Control.png'),
-
   },
 
   bottel: {
@@ -29,10 +31,8 @@ const Assets = {
     bottel2: require('./images/botel2.png'),
     bottel3: require('./images/bottel3.png'),
     bottel4: require('./images/bottel4.png'),
-    bottel5: require('./images/floral.png')
-
-
-  }
+    bottel5: require('./images/floral.png'),
+  },
 };
 
 export default Assets;
