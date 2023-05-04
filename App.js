@@ -11,9 +11,11 @@ import Login from './screens/auth/Login';
 import Homesccreen from './screens/homes/homesccreen';
 import {MenuProvider} from 'react-native-popup-menu';
 import MyStatusBar from './components/MyStatusbar';
+import PlantsScreen from './screens/homes/plantsScreen';
 
 const App = () => {
   return (
+    // <PlantsScreen />
     // <Homesccreen />
     <SafeAreaProvider initialMetrics={initialWindowMetrics}>
       <MenuProvider>
