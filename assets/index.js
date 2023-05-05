@@ -17,6 +17,7 @@ const Assets = {
     product3: require('./images/bottel2.png'),
     product4: require('./images/BAckgroundMD.png'),
     oilbotel1: require('./images/oilbottel.png'),
+    productItem: require('./images/productitem1.png'),
   },
   services: {
     services1: require('./images/services1.png'),

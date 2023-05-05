@@ -1,4 +1,11 @@
-import {StyleSheet, Image, Text, ImageBackground, View} from 'react-native';
+import {
+  StyleSheet,
+  Image,
+  FlatList,
+  Text,
+  ImageBackground,
+  View,
+} from 'react-native';
 import React from 'react';
 import Assets from '../../assets';
 import Colors from '../../assets/constatnts/Colors';
@@ -9,10 +16,10 @@ const CoverImgCard = ({coverimage}) => {
       <ImageBackground
         style={styles.bgImage}
         source={Assets.BackgrounImages.cover1}>
-        <Text style={[styles.Text, {fontSize: 15}]}>
+        <Text style={[styles.text, {fontSize: 20}]}>
           Trade Product Or Plant
         </Text>
-        <Text style={styles.Text}>
+        <Text style={[styles.text, {paddingVertical: 15}]}>
           Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam
           nonumy eirmod tempor invidunt ut ld diam nonumy eirmod tempor invidunt
           ut ld diam nonumy eirmod tempor invidunt ut l
@@ -26,18 +33,21 @@ export default CoverImgCard;
 const styles = StyleSheet.create({
   container: {
     height: 250,
-    backgroundColor: 'green',
-    marginTop: 15,
-    paddingTop: 15,
+
+    // marginTop: 15,
+    // paddingTop: 15,
   },
   bgImage: {
     flex: 1,
     backgroundColor: 'green',
+    paddingHorizontal: 15,
+    paddingTop: 25,
   },
   text: {
     // fontFamily: Fonts.default,
-    fontSize: 18,
-    color: Colors.Primary,
+    fontSize: 12,
+    color: Colors.textColor.TextColor1,
     letterSpacing: 0.9,
+    lineHeight: 20,
   },
 });
