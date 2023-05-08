@@ -27,16 +27,20 @@ const CoverImgCard = ({
             backgroundColor: backgroundColor,
             borderRadius: borderRadius,
             opacity: opacity,
+            justifyContent: 'center',
+            // alignItems: 'center',
+            marginTop: 20,
+
           }}>
           <Text
             style={[
               styles.text,
-              {textAlign: textAlign, paddingTop: 10, fontSize: 20},
+              { textAlign: textAlign, paddingTop: 10, fontSize: 20 },
             ]}>
             {textName}
           </Text>
           <Text
-            style={[styles.text, {paddingVertical: 15, textAlign: textAlign}]}>
+            style={[styles.text, { paddingVertical: 15, textAlign: textAlign }]}>
             {textDisc}
           </Text>
         </View>
@@ -48,20 +52,22 @@ const CoverImgCard = ({
 export default CoverImgCard;
 const styles = StyleSheet.create({
   container: {
-    height: 250,
+    marginTop: 15,
 
-    // marginTop: 15,
-    // paddingTop: 15,
+
   },
   bgImage: {
     flex: 1,
-    // backgroundColor: 'green',
-    paddingHorizontal: 15,
+    height: 250,
+    padding: 10,
+
+    // // backgroundColor: 'green',
+    // paddingHorizontal: 15,
     paddingTop: 25,
-    width: 50,
-    height: 50,
-    borderRadius: 50,
-    backgroundColor: '#14A384',
+    // width: 50,
+    // height: 50,
+    // borderRadius: 50,
+    // backgroundColor: '#14A384',
   },
 
   text: {

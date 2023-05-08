@@ -6,15 +6,15 @@ import {
   Text,
   View,
 } from 'react-native';
-import React, {useEffect, useState} from 'react';
-import {SafeAreaView} from 'react-native-safe-area-context';
+import React, { useEffect, useState } from 'react';
+import { SafeAreaView } from 'react-native-safe-area-context';
 import Colors from '../../assets/constatnts/Colors';
 import ProductCard from '../../components/ProductCard';
 import ProductCardSm from '../../components/ProductCardSm';
-import {HEIGHT, WIDTH} from '../../assets/constatnts/Dimentions';
+import { HEIGHT, WIDTH } from '../../assets/constatnts/Dimentions';
 import Assets from '../../assets';
 import ProductCardlg from '../../components/ProductCardLG';
-import {FlatList} from 'react-native-gesture-handler';
+import { FlatList } from 'react-native-gesture-handler';
 import ButtonComponent from '../../components/ButtonComponent';
 import Header from '../../components/Header';
 import ProductCircle from '../../components/PRoductsCircle';
@@ -22,7 +22,7 @@ import CoverImgCard from './CoverImgCard';
 import ProductCompo from '../../components/ProductCompo';
 import Searchbar from '../../components/Searchbar';
 
-const HomeScreen = ({navigation}) => {
+const HomeScreen = ({ navigation }) => {
   const [bgColor, SetBgColor] = useState(0);
   const [Data, setData] = useState([]);
   const getApiData = async () => {
@@ -44,10 +44,10 @@ const HomeScreen = ({navigation}) => {
         <ScrollView
           bounces={false}
           showsVerticalScrollIndicator={true}
-          contentContainerStyle={{flexGrow: 1}}>
+          contentContainerStyle={{ flexGrow: 1 }}>
           <View style={styles.header}>
             <Header iconname={'bars'} onPress={() => navigation.openDrawer()} />
-            <View style={{width: '80%'}}>
+            <View style={{ width: '80%' }}>
               <Searchbar placeholder={'Search anything you need..'} />
             </View>
           </View>
@@ -61,7 +61,7 @@ const HomeScreen = ({navigation}) => {
               BoxtbtnText={'Go Now'}
             />
           </View>
-          <View style={{paddingHorizontal: 15}}>
+          <View style={{ paddingHorizontal: 15 }}>
             <ProductCardSm
               OnpresCard={() => {
                 navigation.navigate('AssismentScreen');
@@ -77,9 +77,9 @@ const HomeScreen = ({navigation}) => {
               // numColumns={2}
               horizontal={true}
               showsHorizontalScrollIndicator={true}
-              contentContainerStyle={{marginTop: 15}}
-              renderItem={({item, index}) => {
-                <View style={{marginTop: 15}} />;
+              contentContainerStyle={{ marginTop: 15 }}
+              renderItem={({ item, index }) => {
+                <View style={{ marginTop: 15 }} />;
                 return (
                   <>
                     <View style={{}}>
@@ -104,7 +104,7 @@ const HomeScreen = ({navigation}) => {
             />
           </View>
           <View style={[styles.detailProduct, {}]}>
-            <View style={{marginTop: 25, paddingHorizontal: 15}}>
+            <View style={{ marginTop: 25, paddingHorizontal: 15 }}>
               <View style={styles.productimg}>
                 <Image
                   source={Assets.products.product2}
@@ -112,14 +112,14 @@ const HomeScreen = ({navigation}) => {
                   style={styles.img}
                 />
               </View>
-              <View style={{marginTop: 15}}>
-                <Text style={[styles.text, {fontSize: 12, color: '#14A384'}]}>
+              <View style={{ marginTop: 15 }}>
+                <Text style={[styles.text, { fontSize: 12, color: '#14A384' }]}>
                   INFORMATION
                 </Text>
                 <Text
                   style={[
                     styles.text,
-                    {fontSize: 20, paddingTop: 5, color: '#ffff'},
+                    { fontSize: 20, paddingTop: 5, color: '#ffff' },
                   ]}>
                   About KoKo Ranch
                 </Text>
@@ -138,7 +138,7 @@ const HomeScreen = ({navigation}) => {
                   aliquyam erat, sed diam voluptua. At vero eos et accusam et
                   nonumy eirmod tempor.
                 </Text>
-                <View style={{marginTop: 15}} />
+                <View style={{ marginTop: 15 }} />
                 <ButtonComponent
                   btnfonSize={10}
                   borderRadius={12}
@@ -151,7 +151,7 @@ const HomeScreen = ({navigation}) => {
                 />
               </View>
             </View>
-            <View style={{flex: 1, paddingHorizontal: 15}}>
+            <View style={{ flex: 1, paddingHorizontal: 15 }}>
               <ProductCardSm
                 OnpresCard={() => {
                   navigation.navigate('AssismentScreen');
@@ -163,14 +163,14 @@ const HomeScreen = ({navigation}) => {
                 text="Fitness Assesment"
               />
             </View>
-            <View style={{marginTop: 25}}>
+            <View style={{ marginTop: 25 }}>
               <FlatList
                 data={data2}
                 numColumns={3}
-                renderItem={({item, index}) => {
+                renderItem={({ item, index }) => {
                   return (
                     <>
-                      <View style={{marginTop: 5, padding: 10}}>
+                      <View style={{ marginTop: 5, padding: 10 }}>
                         <ProductCircle
                           onPress={() => (index === 0 ? ' pink' : 'green')}
                           outericon={index ? 'chevron-down' : 'chevron-left'}
@@ -215,10 +215,10 @@ const HomeScreen = ({navigation}) => {
               <FlatList
                 data={data}
                 numColumns={2}
-                renderItem={({item, index}) => {
+                renderItem={({ item, index }) => {
                   return (
                     <>
-                      <View style={{padding: 25}}>
+                      <View style={{ padding: 25 }}>
                         <ProductCard
                           card1
                           Ratingsline
@@ -261,10 +261,10 @@ const HomeScreen = ({navigation}) => {
               <FlatList
                 data={data}
                 numColumns={2}
-                renderItem={({item, index}) => {
+                renderItem={({ item, index }) => {
                   return (
                     <>
-                      <View style={{padding: 25}}>
+                      <View style={{ padding: 25 }}>
                         <ProductCard
                           card2
                           arrowicon={item.image}
@@ -282,28 +282,26 @@ const HomeScreen = ({navigation}) => {
               />
               <View
                 style={{
-                  // height: HEIGHT / 1.0,
-                  flexDirection: 'row',
-                  marginTop: 45,
-                  alignSelf: 'center',
+
                 }}>
                 <CoverImgCard
+                  textAlign={'left'}
                   textName={'Trade Products Or Plants'}
                   textDisc={
                     'Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut ld diam nonumy eirmod tempor invidunt ut ld diam nonumy eirmod tempor invidunt ut l'
                   }
                   coverimage={Assets.BackgrounImages.cover1}
                 />
-                <View style={{position: 'absolute', top: 140}}>
+                <View style={{ position: 'absolute', bottom: -30, height: WIDTH / 2 }}>
                   <FlatList
                     data={data}
                     horizontal={true}
                     showsHorizontalScrollIndicator={true}
-                    renderItem={({item, index}) => {
-                      <View style={{paddingHorizontal: 15}} />;
+                    renderItem={({ item, index }) => {
+                      <View style={{ paddingHorizontal: 15 }} />;
                       return (
                         <>
-                          <View style={{paddingHorizontal: 20}}>
+                          <View style={{ paddingHorizontal: 20 }}>
                             <ProductCompo
                               image={Assets.products.productItem}
                               name={item.name}
@@ -325,8 +323,6 @@ const HomeScreen = ({navigation}) => {
             </View>
             <View
               style={{
-                marginTop: 45,
-                flex: 1,
                 paddingHorizontal: 15,
               }}>
               <ProductCardSm
@@ -344,10 +340,10 @@ const HomeScreen = ({navigation}) => {
               <FlatList
                 data={data3}
                 numColumns={2}
-                renderItem={({item, index}) => {
+                renderItem={({ item, index }) => {
                   return (
                     <>
-                      <View style={{padding: 25}}>
+                      <View style={{ padding: 25 }}>
                         <ProductCard
                           card2
                           image={item.image}
@@ -364,8 +360,8 @@ const HomeScreen = ({navigation}) => {
               />
               <View
                 style={{
-                  flexDirection: 'row',
-                  alignSelf: 'center',
+                  paddingTop: 25
+
                 }}>
                 <CoverImgCard
                   borderRadius={20}
@@ -387,18 +383,18 @@ const HomeScreen = ({navigation}) => {
   );
 };
 const data = [
-  {image: Assets.services.services1, Title: 'Landscaping'},
-  {image: Assets.services.services2, Title: 'Lawn Mowing'},
-  {image: Assets.services.services4, Title: 'Tree Services'},
-  {image: Assets.services.services3, Title: 'Tractor Repair'},
-  {image: Assets.services.services5, Title: 'Pest Control'},
-  {Title: 'All Services'},
+  { image: Assets.services.services1, Title: 'Landscaping' },
+  { image: Assets.services.services2, Title: 'Lawn Mowing' },
+  { image: Assets.services.services4, Title: 'Tree Services' },
+  { image: Assets.services.services3, Title: 'Tractor Repair' },
+  { image: Assets.services.services5, Title: 'Pest Control' },
+  { Title: 'All Services' },
 ];
 const data2 = [
-  {image: Assets.bottel.bottel4, outertext: 'Plants', outericon: 'home'},
-  {image: Assets.bottel.bottel2, outertext: 'Plant Nutrients'},
-  {image: Assets.bottel.bottel3, outertext: 'Plant Media', outericon: 'home'},
-  {image: Assets.bottel.bottel4, outertext: 'Plant Container'},
+  { image: Assets.bottel.bottel4, outertext: 'Plants', outericon: 'home' },
+  { image: Assets.bottel.bottel2, outertext: 'Plant Nutrients' },
+  { image: Assets.bottel.bottel3, outertext: 'Plant Media', outericon: 'home' },
+  { image: Assets.bottel.bottel4, outertext: 'Plant Container' },
   {
     image: Assets.bottel.bottel5,
     outertext: 'Floral Supplies',
@@ -409,10 +405,10 @@ const data2 = [
   },
 ];
 const data3 = [
-  {image: Assets.DeliveryScrevice.DeliveryS1, Title: '100% Organic'},
-  {image: Assets.DeliveryScrevice.DeliveryS2, Title: 'Free Shipping'},
-  {image: Assets.DeliveryScrevice.DeliveryS3, Title: 'Certified Product '},
-  {image: Assets.DeliveryScrevice.DeliveryS4, Title: 'Bonus System'},
+  { image: Assets.DeliveryScrevice.DeliveryS1, Title: '100% Organic' },
+  { image: Assets.DeliveryScrevice.DeliveryS2, Title: 'Free Shipping' },
+  { image: Assets.DeliveryScrevice.DeliveryS3, Title: 'Certified Product ' },
+  { image: Assets.DeliveryScrevice.DeliveryS4, Title: 'Bonus System' },
 ];
 export default HomeScreen;
 const styles = StyleSheet.create({
