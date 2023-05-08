@@ -3,6 +3,8 @@ import React, {useState} from 'react';
 import {WIDTH} from '../assets/constatnts/Dimentions';
 import Colors from '../assets/constatnts/Colors';
 import {CustomRating} from './MyRating';
+import { Title } from 'react-native-paper';
+import Assets from '../assets';
 const ProductCard = ({
   name,
   image,
@@ -21,6 +23,9 @@ const ProductCard = ({
   text2,
   text1,
   fontSize,
+  card1,
+  card2,arrowicon, 
+  Title
 }) => {
   const [rating, setRating] = useState(0);
 
@@ -29,7 +34,9 @@ const ProductCard = ({
   };
   // console.log(image);
   return (
-    <TouchableOpacity
+ <>
+   {card1 && (
+     <TouchableOpacity
       style={[
         styles.card,
         {
@@ -124,6 +131,44 @@ const ProductCard = ({
         </>
       )}
     </TouchableOpacity>
+   )}
+   {card2 && (
+     <TouchableOpacity
+      style={[
+        styles.card,
+        {
+          borderColor: Colors.Primary,
+          borderRadius: borderRadius,
+          width: width,
+          height: height,
+          backgroundColor: backgroundColor,
+          justifyContent:'center',
+          alignItems:'center'
+        },
+      ]}>
+      <View style={{}}>
+          <Image
+            source={image}
+            resizeMode="contain"
+            style={{
+              alignItems: 'center',
+            }}
+          />
+      </View>
+      <Text
+        numberOfLines={1}
+        style={[ 
+    {color:Colors.textColor.Primary,
+      fontSize:12}
+        ]}>
+{Title}
+      </Text>
+      <Image source={arrowicon}
+      resizeMode='contain' style={{width:20,height:20}}
+      />
+    </TouchableOpacity>
+   )}
+ </>
   );
 };
 export default ProductCard;
@@ -132,7 +177,6 @@ const styles = StyleSheet.create({
     flex: 1,
     backgroundColor: '#FFFFFF',
     padding: 10,
-
     shadowColor: '#000',
     shadowOffset: {
       width: 0,

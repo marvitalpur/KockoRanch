@@ -2,8 +2,8 @@ const Assets = {
   BackgrounImages: {
     bg1: require('./images/BAckgroundMD.png'),
     cover1: require('./images/cover1.png'),
-    cover2: require('./images/cover2.png'),
-    cover3: require('./images/cover3.png'),
+    cover2: require('./images/Cover2.png'),
+    cover3: require('./images/Cover3.png'),
   },
   Logos: {
     profile: require('./images/profile.png'),
@@ -20,13 +20,19 @@ const Assets = {
     productItem: require('./images/productitem1.png'),
   },
   services: {
-    services1: require('./images/services1.png'),
+    services1: require('./images//services1.png'),
     services2: require('./images/Service2.png'),
     services3: require('./images/Service3.png'),
     services4: require('./images/Service4.png'),
-    services5: require('./images/Pest Control.png'),
+    services5: require('./images/Service5.png'),
   },
-
+  DeliveryScrevice:
+  { 
+    DeliveryS1:require('./images/Dservice1.png'),
+    DeliveryS2:require('./images/Dservice2.png'),
+    DeliveryS3:require('./images/Dservice3.png'),
+    DeliveryS4:require('./images/Dservice4.png'),
+},
   bottel: {
     bottel1: require('./images/bottel.png'),
     bottel2: require('./images/botel2.png'),

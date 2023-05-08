@@ -10,20 +10,36 @@ import React from 'react';
 import Assets from '../../assets';
 import Colors from '../../assets/constatnts/Colors';
 
-const CoverImgCard = ({coverimage}) => {
+const CoverImgCard = ({
+  coverimage,
+  backgroundColor,
+  opacity,
+  textName,
+  textDisc,
+  borderRadius,
+  textAlign,
+}) => {
   return (
     <View style={styles.container}>
-      <ImageBackground
-        style={styles.bgImage}
-        source={Assets.BackgrounImages.cover1}>
-        <Text style={[styles.text, {fontSize: 20}]}>
-          Trade Product Or Plant
-        </Text>
-        <Text style={[styles.text, {paddingVertical: 15}]}>
-          Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam
-          nonumy eirmod tempor invidunt ut ld diam nonumy eirmod tempor invidunt
-          ut ld diam nonumy eirmod tempor invidunt ut l
-        </Text>
+      <ImageBackground style={styles.bgImage} textbx source={coverimage}>
+        <View
+          style={{
+            backgroundColor: backgroundColor,
+            borderRadius: borderRadius,
+            opacity: opacity,
+          }}>
+          <Text
+            style={[
+              styles.text,
+              {textAlign: textAlign, paddingTop: 10, fontSize: 20},
+            ]}>
+            {textName}
+          </Text>
+          <Text
+            style={[styles.text, {paddingVertical: 15, textAlign: textAlign}]}>
+            {textDisc}
+          </Text>
+        </View>
       </ImageBackground>
     </View>
   );
@@ -39,14 +55,20 @@ const styles = StyleSheet.create({
   },
   bgImage: {
     flex: 1,
-    backgroundColor: 'green',
+    // backgroundColor: 'green',
     paddingHorizontal: 15,
     paddingTop: 25,
+    width: 50,
+    height: 50,
+    borderRadius: 50,
+    backgroundColor: '#14A384',
   },
+
   text: {
     // fontFamily: Fonts.default,
+    paddingHorizontal: 25,
     fontSize: 12,
-    color: Colors.textColor.TextColor1,
+    color: Colors.textColor.Primary,
     letterSpacing: 0.9,
     lineHeight: 20,
   },

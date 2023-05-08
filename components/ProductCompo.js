@@ -24,45 +24,55 @@ const ProductCompo = ({
   fontSize,
 }) => {
   const [rating, setRating] = useState(0);
-
   const handleRatingSelect = ratingValue => {
     setRating(ratingValue);
   };
-
   return (
     <TouchableOpacity
       style={[
         styles.card,
         {
-          borderColor: Colors.Primary,
-          borderRadius: borderRadius,
-          width: width,
+          flexDirection:'row',
           height: height,
-          backgroundColor: backgroundColor,
         },
       ]}>
-      <View style={styles.productImage}>
         <Image
           source={image}
           resizeMode="contain"
-          style={{
-            width: WIDTH / 4.12,
-            height: WIDTH / 2.8,
-            // marginRight: 'auto',
-          }}
         />
-      </View>
+     <View style={{paddingTop:10,paddingHorizontal:10}}>
+            <Text style={[ styles.productName, {
+      fontSize:18}]
+    }>
+      IN SEARCH OF :
+      </Text>
+      <Text style={[  styles.text1, styles.productDesc]
+    }>
+    Lorem ipsum dolor sit ametconsete 
+     {'\n'}
+    sadipscing
+     elitr.met, consete sadipscing elitr.
+      </Text>
+  <Text style={[styles.productName]
+    }>
+      TO EXCHANGEWITH:
+      </Text>
+      <Text style={[styles.productDesc]
+    }>
+    Lorem ipsum dolor sit ametconsete {'\n'}sadipscing elitr.met, consete sadipscing elitr.
+      </Text>
+     </View>
     </TouchableOpacity>
   );
 };
-
 export default ProductCompo;
-
 const styles = StyleSheet.create({
   card: {
     flex: 1,
-    backgroundColor: '#FFFFFF',
+    backgroundColor:  Colors.basebg,
     shadowColor: '#000',
+    // paddingHorizontal:5,
+    borderRadius:25,
     shadowOffset: {
       width: 0,
       height: 7,
@@ -76,8 +86,9 @@ const styles = StyleSheet.create({
   },
   productName: {
     // width: '55%',
-    alignSelf: 'center',
-    marginTop: 15,
+    // alignSelf: 'center',
+    marginTop: 5,
+          color:Colors.textColor.Primary,
     fontWeight: '600',
     letterSpacing: 0.9,
     textTransform: 'capitalize',
@@ -85,8 +96,11 @@ const styles = StyleSheet.create({
   },
   productDesc: {
     fontSize: 12,
+     marginTop: 5,
+   color:Colors.textColor.Primary,
     textAlign: 'justify',
     fontWeight: '300',
     color: '#AAAAAA',
   },
+ 
 });

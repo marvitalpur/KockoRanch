@@ -10,6 +10,9 @@ const Header = ({onPress, iconname}) => {
   return (
     <TouchableOpacity style={styles.container}>
       <View style={styles.headerContainer}>
+        <View>
+          <Icon name='' size={24} style={{}} />
+        </View>
         <FAB
           style={[
             styles.btn,
@@ -31,7 +34,6 @@ const Header = ({onPress, iconname}) => {
 };
 
 export default Header;
-
 const styles = StyleSheet.create({
   container: {
     // backgroundColor: 'green',

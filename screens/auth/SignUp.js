@@ -17,7 +17,6 @@ import {LogoSvgs} from '../../assets/svgs/iconsSvgs';
 import Icon from 'react-native-vector-icons/Feather';
 import Inputs from '../../components/Inputs';
 import ButtonComponent from '../../components/ButtonComponent';
-
 const SignUp = ({navigation}) => {
   // const [data, setData] = useState({
   //   username: '',
@@ -51,107 +50,54 @@ const SignUp = ({navigation}) => {
                     paddingHorizontal: 25,
                   }}>
                   <Text
-                    style={{
-                      textAlign: 'center',
-                      fontWeight: '600',
-                      fontSize: 22,
-                      color: Colors.textColor.TextColor1,
-                      // marginTop: 15,
-                    }}>
+                   style={styles.signuptext}>
                     Sign Up as Buyer
                   </Text>
                   <View style={{marginTop: 10}} />
                   <Text
-                    style={{
-                      fontWeight: '600',
-                      fontSize: 14,
-                      color: Colors.textColor.TextColor1,
-                      marginTop: 15,
-                    }}>
+                  style={styles.inputstext}>
                     First Name
                   </Text>
                   <View style={{marginTop: 10}}>
-                    <Inputs placeholder="First Name" textColor="#fff" />
+                    <Inputs placeholder="First Name"
+                     textColor={Colors.textColor.Tertiary} />
                   </View>
                   <View style={{marginTop: 5}} />
                   <Text
-                    style={{
-                      fontWeight: '600',
-                      fontSize: 14,
-                      color: Colors.textColor.TextColor1,
-                      marginTop: 5,
-                    }}>
+                     style={styles.inputstext}>
                     Last Name
                   </Text>
                   <View style={{marginTop: 5}} />
-                  <Inputs placeholder="Last Name" textColor="#fff" />
+                  <Inputs placeholder="Last Name"    textColor={Colors.textColor.Tertiary} />
                   <Text
-                    style={{
-                      fontWeight: '600',
-                      fontSize: 14,
-                      color: Colors.textColor.TextColor1,
-                      marginTop: 15,
-                    }}>
+                   style={styles.inputstext}>
                     Enter Email
                   </Text>
                   <View style={{marginTop: 10}}>
-                    <Inputs placeholder="Enter Email" textColor="#fff" />
+                    <Inputs placeholder="Enter Email"    textColor={Colors.textColor.Tertiary} />
                   </View>
                   <View style={{marginTop: 5}} />
                   <Text
-                    style={{
-                      fontWeight: '600',
-                      fontSize: 14,
-                      color: Colors.textColor.TextColor1,
-                      marginTop: 5,
-                    }}>
+                   style={styles.inputstext}>
                     Enter Phone Number
                   </Text>
                   <View style={{marginTop: 5}} />
                   <Inputs placeholder="+1222567890-998" textColor="#fff" />
                   <View style={{marginTop: 5}} />
                   <Text
-                    style={{
-                      fontWeight: '600',
-                      fontSize: 14,
-                      color: Colors.textColor.TextColor1,
-                      marginTop: 5,
-                    }}>
+                      style={styles.inputstext}>
                     Create New Password
                   </Text>
                   <View style={{marginTop: 5}} />
-                  <Inputs placeholder="Enter Email" textColor="#fff" />
-                  <View style={{marginTop: 5}} />
+                  <Inputs placeholder="Enter Email"    textColor={Colors.textColor.Tertiary} />
                   <Text
-                    style={{
-                      fontWeight: '600',
-                      fontSize: 14,
-                      color: Colors.textColor.TextColor1,
-                      marginTop: 5,
-                    }}>
-                    Create New Password
-                  </Text>
-                  <View style={{marginTop: 5}} />
-                  <Inputs placeholder="Enter password" textColor="#fff" />
-                  <View style={{marginTop: 5}} />
-                  <Text
-                    style={{
-                      fontWeight: '600',
-                      fontSize: 14,
-                      color: Colors.textColor.TextColor1,
-                      marginTop: 5,
-                    }}>
+                       style={styles.inputstext}>
                     Confirm Password
                   </Text>
                   <View style={{marginTop: 5}} />
-                  <Inputs placeholder="Enter Password" textColor="#fff" />
+                  <Inputs placeholder="Enter Password"    textColor={Colors.textColor.Tertiary} />
                   <View
-                    style={{
-                      flexDirection: 'row',
-                      justifyContent: 'space-between',
-                      alignItems: 'center',
-                      marginTop: 10,
-                    }}>
+                       style={styles.inputstext}>
                     <TouchableOpacity
                       style={styles.touchable}
                       onPress={() => setRememberMe(!rememberMe)}>
@@ -160,15 +106,14 @@ const SignUp = ({navigation}) => {
                         size={20}
                         color={
                           rememberMe
-                            ? Colors.Tertiary
-                            : Colors.textColor.TextColor1
+                            ? Colors.textColor.Tertiary
+                            : Colors.textColor.basecolor
                         }
                       />
                       <Text
                         style={[
                           styles.text,
                           {
-                            // textDecorationLine: 'underline',
                             color: Colors.Tertiary,
                             paddingLeft: 10,
                           },
@@ -179,8 +124,7 @@ const SignUp = ({navigation}) => {
                         </Text>
                         and
                         <Text style={{color: Colors.Primary}}>
-                          {' '}
-                          Terms and Conditions{' '}
+                          Terms and Conditions
                         </Text>
                       </Text>
                     </TouchableOpacity>
@@ -190,7 +134,7 @@ const SignUp = ({navigation}) => {
                       styles.touchable,
                       {alignSelf: 'center', paddingTop: 15},
                     ]}
-                    onPress={() => navigation.navigate('Signup')}>
+                      onPress={() =>navigation.navigate('Login')}>
                     <Text
                       style={[
                         styles.text,
@@ -206,6 +150,19 @@ const SignUp = ({navigation}) => {
                       <Text style={{color: Colors.Primary}}> login </Text>
                     </Text>
                   </TouchableOpacity>
+              <View style={{alignSelf:'center'}}>
+                    <ButtonComponent
+                    btnfonSize={16}
+                    borderRadius={50}
+                    buttonText="Sign Up"
+                    buttonColor={Colors.Primary}
+                    textColor={Colors.textColor.Primary}
+                    onPress={() =>navigation.navigate('Login')}
+                    // onPress={getApiData}
+                    height={WIDTH <= 375 ? 40 : 55}
+                    width={WIDTH <= 375 ? 125 : 175}
+                  />
+              </View>
                 </View>
               </KeyboardAwareScrollView>
             </View>
@@ -218,28 +175,32 @@ const SignUp = ({navigation}) => {
 
 export default SignUp;
 const styles = StyleSheet.create({
-  container: {
+   container: {
     flex: 1,
     backgroundColor: Colors.Secondary,
-    justifyContent: 'center',
-    alignItems: 'center',
   },
   image: {
     flex: 1,
-    // height: HEIGHT / 1.3,
-
-    // justifyContent: 'center',
-    // alignItems: 'center',
+  },
+signuptext: {
+    textAlign: 'center',
+    fontWeight: '600',
+    fontSize: 22,
+    color: Colors.textColor.Primary,
+    marginTop: 15,
   },
   box: {
     paddingTop: 15,
-    // backgroundColor: Colors.blackBg,
     opacity: 0.7,
-    // width: WIDTH,
-
-    // alignItems: 'center',
+    height: HEIGHT / 1.3,
     marginTop: 25,
     borderRadius: 5,
+  },
+  IconMainView: {
+    flexDirection: 'row',
+    justifyContent: 'space-between',
+    alignItems: 'center',
+    marginTop: 10,
   },
   touchable: {
     marginTop: 10,
@@ -249,9 +210,21 @@ const styles = StyleSheet.create({
     letterSpacing: 0.7,
     Colors: Colors.textColor.TextColor1,
   },
-
+  bottomtext: {
+    flex: 1,
+    alignItems: 'center',
+    justifyContent: 'space-evenly',
+    marginTop: 15,
+  },
+  inputstext:{
+  fontWeight: '600',
+  fontSize: 14,
+  // color: Colors.TextColor1.Primary,
+   color: Colors.textColor.Primary,
+  marginTop: 15,
+     },
   text: {
     fontSize: 14,
-    color: Colors.textColor.TextColor1,
+    // color: Colors.textColor.TextColor1,
   },
 });

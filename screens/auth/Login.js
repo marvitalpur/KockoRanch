@@ -54,7 +54,6 @@ const Login = ({navigation}) => {
         <View style={{paddingTop: 25, alignSelf: 'center'}}>
           <LogoSvgs />
         </View>
-
         <View style={{paddingHorizontal: 25}}>
           <View style={styles.box}>
             <KeyboardAwareScrollView
@@ -68,26 +67,9 @@ const Login = ({navigation}) => {
                 style={{
                   paddingHorizontal: 25,
                 }}>
-                <Text
-                  style={{
-                    textAlign: 'center',
-                    fontWeight: '600',
-                    fontSize: 22,
-                    color: Colors.textColor.TextColor1,
-                    marginTop: 15,
-                  }}>
-                  Login
-                </Text>
+                <Text style={styles.logintext}> Login</Text>
                 <View style={{marginTop: 10}} />
-                <Text
-                  style={{
-                    fontWeight: '600',
-                    fontSize: 14,
-                    color: Colors.textColor.TextColor1,
-                    marginTop: 15,
-                  }}>
-                  Enter Email or Phone
-                </Text>
+                <Text style={styles.inputstext}> Enter Email or Phone </Text>
                 <View style={{marginTop: 10}}>
                   <Inputs
                     placeholder="Email or Phone"
@@ -98,16 +80,7 @@ const Login = ({navigation}) => {
                   />
                 </View>
                 <View style={{marginTop: 10}} />
-                <Text
-                  style={{
-                    fontWeight: '600',
-                    fontSize: 14,
-                    // color: Colors.TextColor1.Primary,
-                    color: Colors.textColor.TextColor1,
-                    marginTop: 15,
-                  }}>
-                  Enter Password
-                </Text>
+                <Text style={styles.inputstext}>Enter Password</Text>
                 <View style={{marginTop: 10}} />
                 <Inputs
                   placeholder="Enter Password"
@@ -116,13 +89,7 @@ const Login = ({navigation}) => {
                   setText={setPassword}
                   formkey="password"
                 />
-                <View
-                  style={{
-                    flexDirection: 'row',
-                    justifyContent: 'space-between',
-                    alignItems: 'center',
-                    marginTop: 10,
-                  }}>
+                <View style={styles.IconMainView}>
                   <TouchableOpacity
                     style={styles.touchable}
                     onPress={() => setRememberMe(!rememberMe)}>
@@ -130,13 +97,14 @@ const Login = ({navigation}) => {
                       name={rememberMe ? 'check-square' : 'square'}
                       size={20}
                       color={
-                        rememberMe
-                          ? Colors.Tertiary
-                          : Colors.textColor.TextColor1
+                        rememberMe ? Colors.Tertiary : Colors.textColor.Primary
                       }
                     />
                     <Text
-                      style={[styles.text, {marginLeft: 5, Colors: '#fff'}]}>
+                      style={[
+                        styles.text,
+                        {marginLeft: 5, color: Colors.textColor.Primary},
+                      ]}>
                       Remember me
                     </Text>
                   </TouchableOpacity>
@@ -146,20 +114,14 @@ const Login = ({navigation}) => {
                         styles.text,
                         {
                           textDecorationLine: 'underline',
-                          Colors: '#fff',
+                          color: Colors.textColor.Primary,
                         },
                       ]}>
-                      Forgot Password?
+                      Forgot Password ?
                     </Text>
                   </TouchableOpacity>
                 </View>
-                <View
-                  style={{
-                    flex: 1,
-                    alignItems: 'center',
-                    justifyContent: 'space-evenly',
-                    marginTop: 15,
-                  }}>
+                <View style={styles.bottomtext}>
                   <TouchableOpacity
                     style={[]}
                     onPress={() => navigation.navigate('signup')}>
@@ -171,8 +133,8 @@ const Login = ({navigation}) => {
                           color: Colors.Primary,
                         },
                       ]}>
-                      Create Your Account?
-                      <Text style={{color: '#ffff'}}>Signup</Text>
+                      Create Your Account ?
+                      <Text style={{color: Colors.Tertiary}}> Signup </Text>
                     </Text>
                   </TouchableOpacity>
                   <View style={{marginTop: 15}} />
@@ -181,7 +143,7 @@ const Login = ({navigation}) => {
                     borderRadius={50}
                     buttonText="Login"
                     buttonColor={Colors.Primary}
-                    textColor={Colors.textColor.TextColor1}
+                    textColor={Colors.textColor.Primary}
                     onPress={() =>
                       navigation.replace('MyDrawer', {
                         screen: 'HomeScreen',
@@ -209,18 +171,26 @@ const styles = StyleSheet.create({
   },
   image: {
     flex: 1,
-    // justifyContent: 'center',
-    // alignItems: 'center',
+  },
+  logintext: {
+    textAlign: 'center',
+    fontWeight: '600',
+    fontSize: 22,
+    color: Colors.textColor.Primary,
+    marginTop: 15,
   },
   box: {
     paddingTop: 15,
-    // backgroundColor: Colors.blackBg,
     opacity: 0.7,
-    // width: WIDTH,
     height: HEIGHT / 1.3,
-    // alignItems: 'center',
     marginTop: 25,
     borderRadius: 5,
+  },
+  IconMainView: {
+    flexDirection: 'row',
+    justifyContent: 'space-between',
+    alignItems: 'center',
+    marginTop: 10,
   },
   touchable: {
     marginTop: 10,
@@ -230,7 +200,19 @@ const styles = StyleSheet.create({
     letterSpacing: 0.7,
     Colors: Colors.textColor.TextColor1,
   },
-
+  bottomtext: {
+    flex: 1,
+    alignItems: 'center',
+    justifyContent: 'space-evenly',
+    marginTop: 15,
+  },
+  inputstext: {
+    fontWeight: '600',
+    fontSize: 14,
+    // color: Colors.TextColor1.Primary,
+    color: Colors.textColor.Primary,
+    marginTop: 15,
+  },
   text: {
     fontSize: 14,
     // color: Colors.textColor.TextColor1,

@@ -35,9 +35,8 @@ const ProductCircle = ({
         style={[
           styles.card,
           {
-            borderWidth: products ? null : 2,
-            borderColor: Colors.Primary,
-            borderRadius: borderRadius,
+       
+          
             width: width,
             height: height,
             backgroundColor: backgroundColor,
@@ -109,9 +108,13 @@ export default ProductCircle;
 const styles = StyleSheet.create({
   card: {
     flex: 1,
-    backgroundColor: '#FFFFFF',
+    backgroundColor: Colors.Secondary,
     padding: 10,
     shadowColor: '#000',
+    borderColor: Colors.Primary,
+    borderRadius: 100,
+    borderWidth:3,
+    justifyContent:'center',
     shadowOffset: {
       width: 0,
       height: 7,

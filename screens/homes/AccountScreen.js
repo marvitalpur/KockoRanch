@@ -6,54 +6,46 @@ import {
   TouchableOpacity,
   ImageBackground,
 } from 'react-native';
-import React, { useEffect, useState } from 'react';
-import { SafeAreaView } from 'react-native-safe-area-context';
-import { KeyboardAwareScrollView } from 'react-native-keyboard-aware-scroll-view';
+import React, {useEffect, useState} from 'react';
+import {SafeAreaView} from 'react-native-safe-area-context';
+import {KeyboardAwareScrollView} from 'react-native-keyboard-aware-scroll-view';
 import Assets from '../../assets';
-import { Colors } from '../../assets/constatnts/Colors';
-import { LogoSvgs } from '../../assets/svgs/iconsSvgs';
+import {Colors} from '../../assets/constatnts/Colors';
 import Icon from 'react-native-vector-icons/Feather';
 import ButtonComponent from '../../components/ButtonComponent';
 import Inputs from '../../components/Inputs';
-import { HEIGHT, WIDTH } from '../../assets/constatnts/Dimentions';
-import { Avatar } from 'react-native-paper';
+import {HEIGHT, WIDTH} from '../../assets/constatnts/Dimentions';
+import {Avatar} from 'react-native-paper';
 import Header from '../../components/Header';
 
-const AccountScreen = ({ navigation }) => {
+const AccountScreen = ({navigation}) => {
   const [data, setData] = useState({
     username: '',
     phone: '',
-    Email: ''
+    Email: '',
   });
-  const [Email, setEmail] = useState('');
   const [password, setPassword] = useState('');
-
-
   return (
     <SafeAreaView style={styles.container}>
       <ImageBackground
         source={Assets.BackgrounImages.bg1}
         resizeMode="cover"
         style={styles.image}>
-        <View style={{ paddingHorizontal: 25, marginTop: 25 }}>
-          <Header
-            iconname={'bars'}
-            onPress={() => navigation.openDrawer()}
-          />
+        <View style={{paddingHorizontal: 25, marginTop: 25}}>
+          <Header iconname={'bars'} onPress={() => navigation.openDrawer()} />
         </View>
 
-        <View style={{ alignSelf: 'center' }}>
+        <View style={{alignSelf: 'center'}}>
           <Avatar.Image
             size={90}
-            style={{ alignSelf: 'center' }}
-            source={Assets.Logos.avatarPlaceholderr}
+            style={{alignSelf: 'center'}}
+            source={Assets.Logos.avatarPlaceholder}
           />
           <View style={styles.plusicon}>
             <Icon name="#000" color={'#fff'} />
           </View>
-
         </View>
-        <View style={{ paddingHorizontal: 25 }}>
+        <View style={{paddingHorizontal: 25}}>
           <View style={styles.box}>
             <KeyboardAwareScrollView
               keyboardShouldPersistTaps="handled"
@@ -61,21 +53,14 @@ const AccountScreen = ({ navigation }) => {
               enableAutomaticScroll={true}
               bounces={false}
               showsVerticalScrollIndicator={false}
-              contentContainerStyle={{ flexGrow: 1 }}>
+              contentContainerStyle={{flexGrow: 1}}>
               <View
                 style={{
                   paddingHorizontal: 15,
                 }}>
-                <Text
-                  style={{
-                    fontWeight: '600',
-                    fontSize: 14,
-                    color: Colors.textColor.TextColor1,
-
-                  }}>
-                  First Name
-                </Text>
-                <View style={{ marginTop: 5 }}>
+                <View style={{marginTop: 10}} />
+                <Text style={styles.inputstext}> Enter Email or Phone </Text>
+                <View style={{marginTop: 10}}>
                   <Inputs
                     placeholder="Jon"
                     textColor="#AAA"
@@ -84,18 +69,9 @@ const AccountScreen = ({ navigation }) => {
                     formkey="username"
                   />
                 </View>
-                <View style={{ marginTop: 5 }} />
-                <Text
-                  style={{
-                    fontWeight: '600',
-                    fontSize: 14,
-                    // color: Colors.TextColor1.Primary,
-                    color: Colors.textColor.TextColor1,
-                    marginTop: 5,
-                  }}>
-                  Last Name
-                </Text>
-                <View style={{ marginTop: 10 }} />
+                <View style={{marginTop: 5}} />
+                <Text style={styles.inputstext}>Last Name</Text>
+                <View style={{marginTop: 10}} />
                 <Inputs
                   placeholder="Doe"
                   textColor="#AAA"
@@ -103,18 +79,9 @@ const AccountScreen = ({ navigation }) => {
                   setText={setData}
                   formkey="username"
                 />
-                <View style={{ marginTop: 5 }} />
-                <Text
-                  style={{
-                    fontWeight: '600',
-                    fontSize: 14,
-                    // color: Colors.TextColor1.Primary,
-                    color: Colors.textColor.TextColor1,
-                    marginTop: 5,
-                  }}>
-                  Email
-                </Text>
-                <View style={{ marginTop: 5 }} />
+                <View style={{marginTop: 5}} />
+                <Text style={styles.inputstext}>Email</Text>
+                <View style={{marginTop: 5}} />
                 <Inputs
                   placeholder="JONEDOE@gmail.com"
                   textColor="#AAA"
@@ -123,18 +90,9 @@ const AccountScreen = ({ navigation }) => {
                   formkey="email"
                 />
 
-                <View style={{ marginTop: 5 }} />
-                <Text
-                  style={{
-                    fontWeight: '600',
-                    fontSize: 14,
-                    // color: Colors.TextColor1.Primary,
-                    color: Colors.textColor.TextColor1,
-                    marginTop: 5,
-                  }}>
-                  Phone Number
-                </Text>
-                <View style={{ marginTop: 5 }} />
+                <View style={{marginTop: 5}} />
+                <Text style={styles.inputstext}>Phone Number</Text>
+                <View style={{marginTop: 5}} />
                 <Inputs
                   placeholder="+1234567890"
                   textColor="#AAA"
@@ -142,28 +100,22 @@ const AccountScreen = ({ navigation }) => {
                   setText={setPassword}
                   formkey="password"
                 />
-
                 <View
                   style={{
-                    flex: 1,
+                    marginTop: 25,
                     alignItems: 'center',
-                    justifyContent: 'space-evenly',
-                    marginTop: 5,
                   }}>
-
-                  <View style={{ marginTop: 5 }} />
                   <ButtonComponent
                     btnfonSize={16}
                     borderRadius={50}
                     buttonText="Update"
                     buttonColor={Colors.Primary}
-                    textColor={Colors.textColor.TextColor1}
+                    textColor={Colors.textColor.Primary}
                     onPress={() =>
                       navigation.replace('MyDrawer', {
                         screen: 'HomeScreen',
                       })
                     }
-                    // onPress={getApiData}
                     height={WIDTH <= 375 ? 40 : 55}
                     width={WIDTH <= 375 ? 125 : 175}
                   />
@@ -185,16 +137,16 @@ const styles = StyleSheet.create({
   },
   image: {
     flex: 1,
-    // justifyContent: 'center',
-    // alignItems: 'center',
+  },
+  plusicon: {
+    position: 'absolute',
+    right: 0,
+    bottom: 0,
   },
   box: {
-    // paddingTop: 15,
-    // backgroundColor: Colors.blackBg,
     opacity: 0.7,
     // width: WIDTH,
     height: HEIGHT / 1.3,
-    // alignItems: 'center',
     borderRadius: 5,
   },
   touchable: {
@@ -205,13 +157,15 @@ const styles = StyleSheet.create({
     letterSpacing: 0.7,
     Colors: Colors.textColor.TextColor1,
   },
-
+  inputstext: {
+    fontWeight: '600',
+    fontSize: 14,
+    // color: Colors.TextColor1.Primary,
+    color: Colors.textColor.Primary,
+    marginTop: 15,
+  },
   text: {
     fontSize: 14,
     // color: Colors.textColor.TextColor1,
   },
-
 });
-
-
-

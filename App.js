@@ -18,16 +18,16 @@ const App = () => {
   return (
     // <PlantsScreen />
     // <Homesccreen />
-    <TradeScreen />
-    // <SafeAreaProvider initialMetrics={initialWindowMetrics}>
-    //   <MenuProvider>
-    //     <MyStatusBar
-    //       backgroundColor={Platform.OS === 'ios' ? 'transparent' : '#000'}
-    //       barStyle={Platform.OS === 'ios' ? 'dark' : 'light-content'}
-    //     />
-    //     <RootStack />
-    //   </MenuProvider>
-    // </SafeAreaProvider>
+    // <TradeScreen />
+    <SafeAreaProvider initialMetrics={initialWindowMetrics}>
+      <MenuProvider>
+        <MyStatusBar
+          backgroundColor={Platform.OS === 'ios' ? 'transparent' : '#000'}
+          barStyle={Platform.OS === 'ios' ? 'dark' : 'light-content'}
+        />
+        <RootStack />
+      </MenuProvider>
+    </SafeAreaProvider>
   );
 };
 
