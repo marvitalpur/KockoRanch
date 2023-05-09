@@ -1,29 +1,20 @@
-import {
-  Image,
-  ImageBackground,
-  ScrollView,
-  StyleSheet,
-  Text,
-  View,
-} from 'react-native';
+import {ImageBackground, ScrollView, StyleSheet, View} from 'react-native';
 import React, {useEffect, useState} from 'react';
 import {SafeAreaView} from 'react-native-safe-area-context';
 import Colors from '../../assets/constatnts/Colors';
 import ProductCard from '../../components/ProductCard';
 import ProductCardSm from '../../components/ProductCardSm';
-import {HEIGHT, WIDTH} from '../../assets/constatnts/Dimentions';
 import Assets from '../../assets';
-import ProductCardlg from '../../components/ProductCardLG';
 import {FlatList} from 'react-native-gesture-handler';
-import ButtonComponent from '../../components/ButtonComponent';
 import Header from '../../components/Header';
-import ProductCircle from '../../components/PRoductsCircle';
 import CoverImgCard from './CoverImgCard';
 import ProductCompo from '../../components/ProductCompo';
 import Searchbar from '../../components/Searchbar';
+import CirleCard from '../../components/CircleCard/CirleCard';
+import ContentCompo from '../../components/ContentCompo';
+import ProductList from '../../components/PrductLis';
 
 const HomeScreen = ({navigation}) => {
-  const [bgColor, SetBgColor] = useState(0);
   const [Data, setData] = useState([]);
   const getApiData = async () => {
     const url = 'https://jsonplaceholder.typicode.com/posts';
@@ -34,7 +25,6 @@ const HomeScreen = ({navigation}) => {
   useEffect(() => {
     getApiData();
   }, []);
-
   return (
     <SafeAreaView style={styles.container}>
       <ImageBackground
@@ -51,106 +41,21 @@ const HomeScreen = ({navigation}) => {
               <Searchbar placeholder={'Search anything you need..'} />
             </View>
           </View>
-          <View style={styles.coverimage}>
-            <ProductCardlg
-              image1
-              BtnTouchable1
-              CardImageBGMain={Assets.products.product1}
-              BoxtText1="Kids Hope"
-              BoxtText2="Lorem ipsum dolor sit amet, consetetur sadipscing elitr,"
-              BoxtbtnText={'Go Now'}
-            />
-          </View>
           <View style={{paddingHorizontal: 15}}>
             <ProductCardSm
               OnpresCard={() => {
                 navigation.navigate('AssismentScreen');
               }}
-              text1={'Featured '}
+              text1={'Featured'}
               text2={'Products'}
               text3={'See All'}
               img={Assets.BackgrounImages.bg1}
               text="Fitness Assesment"
             />
-            <FlatList
-              data={Data}
-              // numColumns={2}
-              horizontal={true}
-              showsHorizontalScrollIndicator={true}
-              contentContainerStyle={{marginTop: 15}}
-              renderItem={({item, index}) => {
-                <View style={{marginTop: 15}} />;
-                return (
-                  <>
-                    <View style={{}}>
-                      <ProductCard
-                        card1
-                        Ratingsline
-                        image={Assets.products.oilbotel1}
-                        text1={'$14.80'}
-                        text2={'$17.80'}
-                        backgroundColor={'#1A1A1A'}
-                        description="Koko Ranch Cannabis Product Name Here"
-                        products={true}
-                        width={154}
-                        height={220}
-                        borderRadius={23}
-                        fontWeight="bold"
-                      />
-                    </View>
-                  </>
-                );
-              }}
-            />
+            <ProductList index />
           </View>
           <View style={[styles.detailProduct, {}]}>
-            <View style={{marginTop: 25, paddingHorizontal: 15}}>
-              <View style={styles.productimg}>
-                <Image
-                  source={Assets.products.product2}
-                  resizeMode="contain"
-                  style={styles.img}
-                />
-              </View>
-              <View style={{marginTop: 15}}>
-                <Text style={[styles.text, {fontSize: 12, color: '#14A384'}]}>
-                  INFORMATION
-                </Text>
-                <Text
-                  style={[
-                    styles.text,
-                    {fontSize: 20, paddingTop: 5, color: '#ffff'},
-                  ]}>
-                  About KoKo Ranch
-                </Text>
-                <Text
-                  style={[
-                    styles.text,
-                    {
-                      fontSize: 10,
-                      paddingTop: 15,
-                      color: '#D4D4D4',
-                      lineHeight: 16,
-                    },
-                  ]}>
-                  Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed
-                  diam nonumy eirmod tempor invidunt ut labore et dolore magna
-                  aliquyam erat, sed diam voluptua. At vero eos et accusam et
-                  nonumy eirmod tempor.
-                </Text>
-                <View style={{marginTop: 15}} />
-                <ButtonComponent
-                  btnfonSize={10}
-                  borderRadius={12}
-                  buttonText="read more"
-                  buttonColor={Colors.Primary}
-                  textColor={Colors.textColor.Primary}
-                  onPress={() => navigation.navigate('Drawer')}
-                  height={WIDTH <= 375 ? 40 : 35}
-                  width={WIDTH <= 375 ? 125 : 116}
-                />
-              </View>
-            </View>
+            <ContentCompo />
             <View style={{flex: 1, paddingHorizontal: 15}}>
               <ProductCardSm
                 OnpresCard={() => {
@@ -162,84 +67,8 @@ const HomeScreen = ({navigation}) => {
                 img={Assets.BackgrounImages.bg1}
                 text="Fitness Assesment"
               />
-            </View>
-            <View style={{marginTop: 25}}>
-              <FlatList
-                data={data2}
-                numColumns={3}
-                renderItem={({item, index}) => {
-                  return (
-                    <>
-                      <View style={{marginTop: 5, padding: 10}}>
-                        <ProductCircle
-                          onPress={() => (index === 0 ? ' pink' : 'green')}
-                          outericon={index ? 'chevron-down' : 'chevron-left'}
-                          outertext={item.outertext}
-                          name={item.text}
-                          // backgroundColor={
-                          //   isColor === 0 ? '#CAEAE3' : '#14A384'
-                          // }
-                          image={item.image}
-                          color2={index % 2 == 0 ? '#ecf0f1' : '#fff'}
-                          width={95}
-                          height={95}
-                          icon={item.icon}
-                          fontSize={10}
-                          borderRadius={100}
-                          color="#000"
-                          fontWeight="bold"
-                        />
-                      </View>
-                    </>
-                  );
-                }}
-              />
-            </View>
-            <View
-              style={{
-                flex: 1,
-                paddingHorizontal: 15,
-              }}>
-              <ProductCardSm
-                OnpresCard={() => {
-                  navigation.navigate('AssismentScreen');
-                }}
-                text1={''}
-                text2={'Plants'}
-                text3={'See All'}
-                img={Assets.BackgrounImages.bg1}
-                text="Fitness Assesment"
-              />
-            </View>
-            <View style={{}}>
-              <FlatList
-                data={data}
-                numColumns={2}
-                renderItem={({item, index}) => {
-                  return (
-                    <>
-                      <View style={{padding: 25}}>
-                        <ProductCard
-                          card1
-                          Ratingsline
-                          image={Assets.products.oilbotel1}
-                          text1={'$14.80'}
-                          text2={'$17.80'}
-                          backgroundColor={'#1A1A1A'}
-                          description="Koko Ranch Cannabis Product Name Here"
-                          products={true}
-                          // image={Assets.products.product2}
-                          width={154}
-                          height={220}
-                          borderRadius={23}
-                          color="#f2f"
-                          fontWeight="bold"
-                        />
-                      </View>
-                    </>
-                  );
-                }}
-              />
+              <CirleCard />
+              <ProductList />
             </View>
             <View
               style={{
@@ -280,13 +109,7 @@ const HomeScreen = ({navigation}) => {
                   );
                 }}
               />
-              <View
-                style={{
-                  // height: HEIGHT / 1.0,
-                  flexDirection: 'row',
-                  marginTop: 45,
-                  alignSelf: 'center',
-                }}>
+              <View style={{}}>
                 <CoverImgCard
                   textName={'Trade Products Or Plants'}
                   textDisc={
@@ -325,7 +148,7 @@ const HomeScreen = ({navigation}) => {
             </View>
             <View
               style={{
-                marginTop: 45,
+                marginTop: 25,
                 flex: 1,
                 paddingHorizontal: 15,
               }}>
@@ -371,6 +194,7 @@ const HomeScreen = ({navigation}) => {
                   borderRadius={20}
                   backgroundColor={Colors.Secondary}
                   opacity={0.75}
+                  paddingTop={30}
                   textAlign={'center'}
                   textName={'Arts & Clothing'}
                   textDisc={
@@ -393,20 +217,6 @@ const data = [
   {image: Assets.services.services3, Title: 'Tractor Repair'},
   {image: Assets.services.services5, Title: 'Pest Control'},
   {Title: 'All Services'},
-];
-const data2 = [
-  {image: Assets.bottel.bottel4, outertext: 'Plants', outericon: 'home'},
-  {image: Assets.bottel.bottel2, outertext: 'Plant Nutrients'},
-  {image: Assets.bottel.bottel3, outertext: 'Plant Media', outericon: 'home'},
-  {image: Assets.bottel.bottel4, outertext: 'Plant Container'},
-  {
-    image: Assets.bottel.bottel5,
-    outertext: 'Floral Supplies',
-  },
-  {
-    text: 'View All{ \n} Categories',
-    icon: 'Arrow',
-  },
 ];
 const data3 = [
   {image: Assets.DeliveryScrevice.DeliveryS1, Title: '100% Organic'},
@@ -431,27 +241,9 @@ const styles = StyleSheet.create({
     paddingHorizontal: 10,
     justifyContent: 'space-around',
   },
-  coverimage: {
-    height: 188,
-    marginTop: 25,
-
-    paddingHorizontal: 15,
-    marginTop: 15,
-  },
-
   text: {
     fontSize: 18,
     color: Colors.Primary,
     letterSpacing: 0.9,
-  },
-  productimg: {
-    justifyContent: 'center',
-    alignSelf: 'center',
-    width: 150,
-    height: 150,
-  },
-  img: {
-    width: '100%',
-    height: '100%',
   },
 });

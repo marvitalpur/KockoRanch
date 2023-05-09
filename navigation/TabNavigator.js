@@ -20,6 +20,7 @@ import {
   Homesvg,
   WCart,
 } from '../assets/svgs/homeSvg';
+import {GreenCategory} from '../assets/svgs/Drawersvg';
 
 // let hasNotch = DeviceInfo.hasNotch();
 
@@ -63,7 +64,7 @@ const MyTabs = props => {
           headerShown: false,
           tabBarLabel: 'Categories',
           tabBarIcon: ({focused}) =>
-            focused ? <Categories /> : <Categories />,
+            focused ? <GreenCategory /> : <Categories />,
         }}
       />
       <Tab.Screen

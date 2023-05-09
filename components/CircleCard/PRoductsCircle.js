@@ -1,9 +1,9 @@
 import {StyleSheet, Text, TouchableOpacity, View, Image} from 'react-native';
 import React from 'react';
 import Icon from 'react-native-vector-icons/Feather';
-import {WIDTH} from '../assets/constatnts/Dimentions';
-import Colors from '../assets/constatnts/Colors';
-import {PotIcon} from '../assets/svgs/homeSvg';
+import {WIDTH} from '../../assets/constatnts/Dimentions';
+import Colors from '../../assets/constatnts/Colors';
+import {PotIcon} from '../../assets/svgs/homeSvg';
 const ProductCircle = ({
   name,
   image,
@@ -35,8 +35,6 @@ const ProductCircle = ({
         style={[
           styles.card,
           {
-       
-          
             width: width,
             height: height,
             backgroundColor: backgroundColor,
@@ -113,8 +111,8 @@ const styles = StyleSheet.create({
     shadowColor: '#000',
     borderColor: Colors.Primary,
     borderRadius: 100,
-    borderWidth:3,
-    justifyContent:'center',
+    borderWidth: 3,
+    justifyContent: 'center',
     shadowOffset: {
       width: 0,
       height: 7,

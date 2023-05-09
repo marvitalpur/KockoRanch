@@ -3,7 +3,7 @@ import React, {useState} from 'react';
 import {WIDTH} from '../assets/constatnts/Dimentions';
 import Colors from '../assets/constatnts/Colors';
 import {CustomRating} from './MyRating';
-import { Title } from 'react-native-paper';
+import {Title} from 'react-native-paper';
 import Assets from '../assets';
 const ProductCard = ({
   name,
@@ -24,8 +24,9 @@ const ProductCard = ({
   text1,
   fontSize,
   card1,
-  card2,arrowicon, 
-  Title
+  card2,
+  arrowicon,
+  Title,
 }) => {
   const [rating, setRating] = useState(0);
 
@@ -34,141 +35,143 @@ const ProductCard = ({
   };
   // console.log(image);
   return (
- <>
-   {card1 && (
-     <TouchableOpacity
-      style={[
-        styles.card,
-        {
-          borderWidth: products ? null : 2,
-          borderColor: Colors.Primary,
-          borderRadius: borderRadius,
-          width: width,
-          height: height,
-          backgroundColor: backgroundColor,
-          marginRight: index % 2 == 0 ? 5 : 0,
-          marginLeft: index % 2 == 0 ? 0 : 5,
-        },
-      ]}>
-      <View style={styles.productImage}>
-        {products ? (
-          <Image
-            source={image}
-            resizeMode="contain"
-            style={{
-              width: WIDTH / 2.9,
-              height: WIDTH / 2.9,
-              marginRight: 'auto',
-              // backgroundColor: 'grey',
-              position: 'absolute',
-              top: -20,
-              left: -5,
-            }}
-          />
-        ) : (
-          <Image
-            source={image}
-            resizeMode="contain"
-            style={{
-              width: WIDTH / 4.5,
-              height: WIDTH / 5.5,
-              marginRight: 'auto',
-              // backgroundColor: 'grey',
-              position: 'absolute',
-              alignItems: 'center',
-              top: -30,
-              right: -8,
-            }}
-          />
-        )}
-      </View>
-
-      <Text
-        numberOfLines={1}
-        style={[
-          styles.productName,
-          {fontWeight: fontWeight, color: color, fontSize: fontSize},
-        ]}>
-        {name}
-      </Text>
-      <Text numberOfLines={3} style={styles.productDesc}>
-        {description}
-      </Text>
-
-      <View style={styles.priceBox}>
-        <Text style={styles.priceText}>{text1}</Text>
-        <Text
+    <>
+      {card1 && (
+        <TouchableOpacity
           style={[
-            styles.priceText,
-            {textDecorationLine: 'line-through', textDecorationStyle: 'solid'},
+            styles.card,
+            {
+              borderWidth: products ? null : 2,
+              borderColor: Colors.Primary,
+              borderRadius: borderRadius,
+              width: width,
+              height: height,
+              backgroundColor: backgroundColor,
+              marginRight: index % 2 == 0 ? 5 : 0,
+              marginLeft: index % 2 == 0 ? 0 : 5,
+            },
           ]}>
-          {text2}
-        </Text>
-      </View>
+          <View style={styles.productImage}>
+            {products ? (
+              <Image
+                source={image}
+                resizeMode="contain"
+                style={{
+                  width: WIDTH / 2.9,
+                  height: WIDTH / 2.9,
+                  marginRight: 'auto',
+                  // backgroundColor: 'grey',
+                  position: 'absolute',
+                  top: -20,
+                  left: -5,
+                }}
+              />
+            ) : (
+              <Image
+                source={image}
+                resizeMode="contain"
+                style={{
+                  width: WIDTH / 4.5,
+                  height: WIDTH / 5.5,
+                  marginRight: 'auto',
+                  // backgroundColor: 'grey',
+                  position: 'absolute',
+                  alignItems: 'center',
+                  top: -30,
+                  right: -8,
+                }}
+              />
+            )}
+          </View>
 
-      {Ratingsline && (
-        <>
+          <Text
+            numberOfLines={1}
+            style={[
+              styles.productName,
+              {fontWeight: fontWeight, color: color, fontSize: fontSize},
+            ]}>
+            {name}
+          </Text>
+          <Text numberOfLines={3} style={styles.productDesc}>
+            {description}
+          </Text>
+
           <View style={styles.priceBox}>
-            <View style={styles.priceBox}>
-              <View style={styles.container}>
-                <CustomRating
-                  maxRating={7}
-                  onRatingSelected={handleRatingSelect}
-                />
-              </View>
-            </View>
+            <Text style={styles.priceText}>{text1}</Text>
             <Text
-              numberOfLines={2}
               style={[
                 styles.priceText,
                 {
-                  color: Colors.Primary,
+                  textDecorationLine: 'line-through',
+                  textDecorationStyle: 'solid',
                 },
               ]}>
-              In Stock
+              {text2}
             </Text>
           </View>
-        </>
+
+          {Ratingsline && (
+            <>
+              <View style={styles.priceBox}>
+                <View style={styles.priceBox}>
+                  <View style={styles.container}>
+                    <CustomRating
+                      maxRating={7}
+                      onRatingSelected={handleRatingSelect}
+                    />
+                  </View>
+                </View>
+                <Text
+                  numberOfLines={2}
+                  style={[
+                    styles.priceText,
+                    {
+                      color: Colors.Primary,
+                    },
+                  ]}>
+                  In Stock
+                </Text>
+              </View>
+            </>
+          )}
+        </TouchableOpacity>
       )}
-    </TouchableOpacity>
-   )}
-   {card2 && (
-     <TouchableOpacity
-      style={[
-        styles.card,
-        {
-          borderColor: Colors.Primary,
-          borderRadius: borderRadius,
-          width: width,
-          height: height,
-          backgroundColor: backgroundColor,
-          justifyContent:'center',
-          alignItems:'center'
-        },
-      ]}>
-      <View style={{}}>
-          <Image
-            source={image}
-            resizeMode="contain"
-            style={{
+      {card2 && (
+        <TouchableOpacity
+          style={[
+            styles.card,
+            {
+              borderColor: Colors.Primary,
+              borderRadius: borderRadius,
+              width: width,
+              height: height,
+              backgroundColor: backgroundColor,
+              justifyContent: 'center',
               alignItems: 'center',
-            }}
+            },
+          ]}>
+          <View style={{}}>
+            <Image
+              source={image}
+              resizeMode="contain"
+              style={{
+                alignItems: 'center',
+              }}
+            />
+          </View>
+          <Text
+            numberOfLines={1}
+            style={[{color: Colors.textColor.Primary, fontSize: 12}]}>
+            {Title}
+          </Text>
+          <Image
+            source={arrowicon}
+            resizeMode="contain"
+            style={{width: 20, height: 20}}
           />
-      </View>
-      <Text
-        numberOfLines={1}
-        style={[ 
-    {color:Colors.textColor.Primary,
-      fontSize:12}
-        ]}>
-{Title}
-      </Text>
-      <Image source={arrowicon}
-      resizeMode='contain' style={{width:20,height:20}}
-      />
-    </TouchableOpacity>
-   )}
- </>
+        </TouchableOpacity>
+      )}
+    </>
   );
 };
 export default ProductCard;

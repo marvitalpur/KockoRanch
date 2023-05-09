@@ -1250,5 +1250,69 @@ const SearchIcon = () => {
     </Svg>
   );
 };
-
-export { LogoSvgs, SearchIcon };
+const ArrowDown = () => {
+  return (
+    <>
+      <Svg
+        xmlns="http://www.w3.org/2000/svg"
+        width="12.417"
+        height="5.214"
+        viewBox="0 0 12.417 5.214">
+        <Path
+          id="Icon_ionic-ios-arrow-down"
+          data-name="Icon ionic-ios-arrow-down"
+          d="M12.4,14.889l4.7-3.451a1.121,1.121,0,0,1,1.253,0,.542.542,0,0,1,0,.923l-5.32,3.91a1.129,1.129,0,0,1-1.224.019L6.446,12.364a.541.541,0,0,1,0-.923,1.121,1.121,0,0,1,1.253,0Z"
+          transform="translate(-6.188 -11.246)"
+          fill="#707070"
+        />
+      </Svg>
+    </>
+  );
+};
+const BackSvg = () => {
+  return (
+    <Svg
+      xmlns="http://www.w3.org/2000/svg"
+      width="24"
+      height="24"
+      viewBox="0 0 24 24">
+      <G
+        id="vuesax_linear_arrow-square-left"
+        data-name="vuesax/linear/arrow-square-left"
+        transform="translate(-492 -188)">
+        <G id="arrow-square-left">
+          <Path
+            id="Vector"
+            d="M7,20h6c5,0,7-2,7-7V7c0-5-2-7-7-7H7C2,0,0,2,0,7v6C0,18,2,20,7,20Z"
+            transform="translate(494 190)"
+            fill="none"
+            stroke="#00b4d8"
+            strokeLinecap="round"
+            strokeLinejoin="round"
+            strokeWidth="1.5"
+          />
+          <Path
+            id="Vector-2"
+            data-name="Vector"
+            d="M3.52,7.06,0,3.53,3.52,0"
+            transform="translate(501.74 196.47)"
+            fill="none"
+            stroke="#00b4d8"
+            strokeLinecap="round"
+            strokeLinejoin="round"
+            strokeWidth="1.5"
+          />
+          <Path
+            id="Vector-3"
+            data-name="Vector"
+            d="M0,0H24V24H0Z"
+            transform="translate(516 212) rotate(180)"
+            fill="none"
+            opacity="0"
+          />
+        </G>
+      </G>
+    </Svg>
+  );
+};
+export {LogoSvgs, SearchIcon, BackSvg, ArrowDown};

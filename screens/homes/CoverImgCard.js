@@ -18,6 +18,7 @@ const CoverImgCard = ({
   textDisc,
   borderRadius,
   textAlign,
+  paddingTop,
 }) => {
   return (
     <View style={styles.container}>
@@ -31,7 +32,7 @@ const CoverImgCard = ({
           <Text
             style={[
               styles.text,
-              {textAlign: textAlign, paddingTop: 10, fontSize: 20},
+              {textAlign: textAlign, paddingTop: paddingTop, fontSize: 20},
             ]}>
             {textName}
           </Text>
@@ -50,16 +51,15 @@ const styles = StyleSheet.create({
   container: {
     height: 250,
 
-    // marginTop: 15,
-    // paddingTop: 15,
+    marginTop: 15,
+    paddingTop: 15,
   },
   bgImage: {
     flex: 1,
     // backgroundColor: 'green',
     paddingHorizontal: 15,
     paddingTop: 25,
-    width: 50,
-    height: 50,
+
     borderRadius: 50,
     backgroundColor: '#14A384',
   },

@@ -11,11 +11,10 @@ import React, {useEffect, useState} from 'react';
 import {SafeAreaView} from 'react-native-safe-area-context';
 import Colors from '../../assets/constatnts/Colors';
 import ProductCard from '../../components/ProductCard';
-import ProductCardSm from '../../components/ProductCardSm';
 import Assets from '../../assets';
 import {FlatList} from 'react-native-gesture-handler';
 import Header from '../../components/Header';
-import ProductCircle from '../../components/PRoductsCircle';
+
 import CoverImgCard from './CoverImgCard';
 
 const PlantsScreen = ({navigation}) => {

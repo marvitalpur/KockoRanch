@@ -7,21 +7,17 @@ import {
   Text,
   View,
 } from 'react-native';
-import React, { useEffect, useState } from 'react';
-import { SafeAreaView } from 'react-native-safe-area-context';
+import React, {useEffect, useState} from 'react';
+import {SafeAreaView} from 'react-native-safe-area-context';
 import Colors from '../../assets/constatnts/Colors';
-import ProductCard from '../../components/ProductCard';
-import ProductCardSm from '../../components/ProductCardSm';
-import { HEIGHT, WIDTH } from '../../assets/constatnts/Dimentions';
 import Assets from '../../assets';
 import ProductCardlg from '../../components/ProductCardLG';
-import { FlatList } from 'react-native-gesture-handler';
+import {FlatList} from 'react-native-gesture-handler';
 import ButtonComponent from '../../components/ButtonComponent';
-import Searcbar from '../../components/Searchbar';
 import Header from '../../components/Header';
-import ProductCircle from '../../components/PRoductsCircle';
+import {ArrowDown} from '../../assets/svgs/iconsSvgs';
 
-const CategoryScreen = ({ navigation }) => {
+const CategoryScreen = ({navigation}) => {
   const [bgColor, SetBgColor] = useState(0);
   const [Data, setData] = useState([]);
   const [isColor, setIsColor] = useState();
@@ -34,37 +30,6 @@ const CategoryScreen = ({ navigation }) => {
   useEffect(() => {
     getApiData();
   }, []);
-  const data = [
-    { image: Assets.products.oilbotel1 },
-    { image: Assets.services.services2 },
-    { image: Assets.services.services3 },
-    { image: Assets.services.services4 },
-    { image: Assets.services.services5 },
-    {},
-  ];
-  const data2 = [
-    { image: Assets.bottel.bottel4, outertext: 'Plants', outericon: 'home' },
-    {
-      image: Assets.bottel.bottel2,
-      outertext: 'Plant Nutrients',
-      outericon: 'home',
-    },
-    { image: Assets.bottel.bottel3, outertext: 'Plant Media', outericon: 'home' },
-    {
-      image: Assets.bottel.bottel4,
-      outertext: 'Plant Container',
-      outericon: 'home',
-    },
-    {
-      image: Assets.bottel.bottel5,
-      outertext: 'Floral Supplies',
-      outericon: 'home',
-    },
-    {
-      text: 'View All{ \n} Categories',
-      icon: 'Arrow',
-    },
-  ];
   const handlepress = index => {
     setIsColor(index);
   };
@@ -77,68 +42,106 @@ const CategoryScreen = ({ navigation }) => {
         <ScrollView
           bounces={false}
           showsVerticalScrollIndicator={true}
-          contentContainerStyle={{ flexGrow: 1 }}>
-          <View style={{ flex: 1, paddingHorizontal: 20 }}>
-            <View style={{ marginVertical: 25, flexDirection: 'row' }}>
-              <View style={{ paddingHorizontal: 5 }}>
-                <Header
-                  iconname={'bars'}
-                  onPress={() => navigation.openDrawer()}
-                />
-              </View>
-            </View>
-          </View>
+          contentContainerStyle={{flexGrow: 1}}>
+          <View style={{paddingHorizontal: 25, paddingTop: 25}}>
+            <Text style={[styles.text, styles.text2, {fontSize: 18}]}>All</Text>
+            <FlatList
+              data={data}
+              renderItem={({item, index}) => {
+                return (
+                  <>
+                    <View style={styles.main}>
+                      <Text style={[styles.text, styles.greentext]}>
+                        {item.heading}
+                      </Text>
 
-          <View style={[styles.detailProduct, { paddingHorizontal: 15 }]}>
-            <View style={{ marginTop: 15, paddingHorizontal: 15 }}>
-              <View style={{}}>
-                <Text style={[styles.text, {
-                  fontSize: 18,
-                  color: '#fff'
-                }]}>
-                  All
-                </Text>
-                <Text
-                  style={[
-                    styles.text,
-                    {
-                      fontSize: 18, paddingTop: 5,
-                      color: '#14A384',
-
-                    },
-                  ]}>
-                  About KoKo Ranch
-                </Text>
-                <View style={{ borderWidth: 1, borderColor: '#ffff', marginVertical: 2 }} />
-                <View style={{ borderWidth: 1, borderColor: '#ffff' }} />
-                <Text
-                  style={[
-                    styles.text,
-                    {
-                      fontSize: 10,
-                      paddingTop: 15,
-                      color: '#D4D4D4',
-                      lineHeight: 16,
-                    },
-                  ]}>
-
-                  nonumy eirmod tempor.
-                </Text>
-
-              </View>
-            </View>
-
+                      <View style={{flexDirection: 'row'}}>
+                        <Text style={[styles.text, styles.text2]}>
+                          {item.text1}
+                        </Text>
+                        <View style={{padding: 10}}>
+                          <ArrowDown />
+                        </View>
+                      </View>
+                      <Text style={[styles.text, styles.text2]}>
+                        {item.text2}
+                      </Text>
+                      <Text style={[styles.text, styles.text2]}>
+                        {item.text3}
+                      </Text>
+                    </View>
+                  </>
+                );
+              }}
+            />
           </View>
         </ScrollView>
       </ImageBackground>
     </SafeAreaView>
   );
 };
+const data = [
+  {
+    heading: 'Plants',
+    text1: 'Cactus/Succulents',
+    text2: 'Flowering Plants',
+    text3: 'Foliage Plants',
+  },
+  {
+    heading: 'Fertilizer',
+    text1: 'Supplement',
+    text2: 'Flowering Plants',
+    // text3: 'Foliage Plants',
+  },
+  {
+    heading: 'Plant Media',
+    text1: 'Plant Media',
+    text2: 'Semi-Hydro',
+    text3: 'Hydrophonic',
+  },
+  {
+    heading: 'Plant Support',
+    text1: 'Terllis',
+    text2: 'Plant Clasps',
+    // text3: 'Foliage Plants',
+  },
+  {
+    heading: 'Floral  Supplies',
+    text1: 'Florasl Tubes',
+    text2: 'Floral Design Supplies',
+    // text3: 'Hydrophonic',
+  },
+  {
+    heading: 'Pest MAnagement ',
+    text1: 'Botanical Pesticides',
+    text2: 'Chemical Pesticides',
+    // text3: 'Hydrophonic',
+  },
+  {
+    heading: 'Botanical Health Products',
+    text1: 'Vitamins',
+    text2: 'Supplement',
+    // text3: 'Hydrophonic',
+  },
+  {
+    heading: 'CBD Products',
+    text1: 'CBD Oil',
+    text2: 'CBD Oil',
+    text3: 'CBD Supplement',
+  },
+];
 export default CategoryScreen;
 const styles = StyleSheet.create({
   container: {
     flex: 1,
     backgroundColor: Colors.Secondary,
+  },
+  main: {flex: 1, paddingTop: 25},
+  Borders: {
+    borderWidth: 1,
+
+    borderColor: Colors.textColor.Primary,
+    marginVertical: 2,
   },
   text: {
     // fontFamily: Fonts.default,
@@ -146,6 +149,31 @@ const styles = StyleSheet.create({
     color: Colors.Primary,
     letterSpacing: 0.9,
   },
+  text2: {
+    fontSize: 10,
+    paddingTop: 5,
+    color: '#D4D4D4',
+    lineHeight: 16,
+  },
+  greentext: {
+    fontSize: 18,
+    paddingTop: 5,
+    color: '#14A384',
+  },
+  borderedText: {
+    borderBottomWidth: 1,
+    borderColor: Colors.Tertiary,
+    padding: 10,
+  },
+  borderedContainer: {
+    borderWidth: 1,
+    borderColor: 'black',
+    padding: 10,
+    flexWrap: 'wrap',
+    alignItems: 'flex-start',
+    flexDirection: 'row',
+  },
+  text: {
+    flexShrink: 1,
+  },
 });
-
-

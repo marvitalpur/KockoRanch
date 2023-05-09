@@ -1,49 +1,43 @@
 import {StyleSheet, Text, View} from 'react-native';
 import React from 'react';
-import {TouchableOpacity} from 'react-native';
-import {FAB} from 'react-native-paper';
-import {WIDTH} from '../assets/constatnts/Dimentions';
+import {TouchableRipple} from 'react-native-paper';
 import Colors from '../assets/constatnts/Colors';
-import Icon from 'react-native-vector-icons/Feather';
+import {ArrowDown} from '../assets/svgs/iconsSvgs';
 
-const Header = ({onPress, iconname}) => {
+const Header = ({logo, navigation, backIcon}) => {
   return (
-    <TouchableOpacity style={styles.container}>
-      <View style={styles.headerContainer}>
-        <View>
-          <Icon name='' size={24} style={{}} />
-        </View>
-        <FAB
-          style={[
-            styles.btn,
-            {
-              height: WIDTH < 375 ? 40 : 45,
-              width: WIDTH < 375 ? 40 : 45,
-              justifyContent: 'center',
-              backgroundColor: '#FFFFFF',
-            },
-          ]}
-          size="small"
-          icon={iconname}
-          color={Colors.Primary}
-          onPress={onPress}
-        />
-      </View>
-    </TouchableOpacity>
+    <View style={styles.container}>
+      <TouchableRipple
+        onPress={() =>
+          backIcon ? navigation.closeDrawer() : navigation.openDrawer()
+        }
+        style={styles.btn}>
+        {backIcon ? <BackSvg /> : <ArrowDown />}
+      </TouchableRipple>
+      {/* <Text>Header</Text> */}
+      {/* {logo && <ArrowDown />}
+      {backIcon ? (
+        <View style={{width: 50, height: 50}} />
+      ) : (
+        <TouchableRipple style={styles.btn}>
+          <ArrowDown />
+        </TouchableRipple>
+      )} */}
+    </View>
   );
 };
 
 export default Header;
+
 const styles = StyleSheet.create({
   container: {
-    // backgroundColor: 'green',
-  },
-  headerContainer: {
     flexDirection: 'row',
-    justifyContent: 'flex-start',
     alignItems: 'center',
+    justifyContent: 'space-between',
+
+    // backgroundColor: 'red',
   },
-  fab: {
+  btn: {
     height: 50,
     width: 50,
     borderRadius: 10,
@@ -51,15 +45,14 @@ const styles = StyleSheet.create({
     // marginVertical: 10,
     justifyContent: 'center',
     alignItems: 'center',
-    // backgroundColor: Colors.secondary,
-    // shadowColor: Colors.tertiary,
+    backgroundColor: Colors.textColor.Primary,
+    shadowColor: Colors.Primary,
     shadowOffset: {
       width: 0,
       height: 7,
     },
     shadowOpacity: 0.43,
     shadowRadius: 9.51,
-
     elevation: 15,
   },
 });
