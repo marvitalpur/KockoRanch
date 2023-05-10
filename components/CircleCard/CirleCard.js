@@ -101,7 +101,7 @@ const CircleCard = props => {
                         <View style={styles.textview}>
                           <Text numberOfLines={3} style={{ textAlign: 'center' }}>{item.text2}
                           </Text>
-                          <Icon name={item.name} color={'Green'} style={{ textAlign: 'center' }} />
+                          <Icon name={item.name} style={{ textAlign: 'center' }} />
                         </View>
                       </View>
                     </View>
