@@ -10,18 +10,20 @@ import ProductCard from './ProductCard';
 import ProductCardSm from './ProductCardSm';
 import Assets from '../assets';
 import Colors from '../assets/constatnts/Colors';
+import {Title} from 'react-native-paper';
 
-const ProductList = ({index}) => {
+const ProductList = ({index, image1, Title,text1,text2,text3}) => {
+  const data = [
+    {image1: image1, Title: Title},
+    {image1: image1, Title: Title},
+    {image1: image1, Title: Title},
+    {image1: image1, Title: Title},
+  ];
   return (
     <>
       <View style={{}}>
         {index ? (
-          <View
-            style={{
-              flex: 1,
-              //   paddingHorizontal: 15,
-              //   backgroundColor: 'green',
-            }}>
+          <View style={{flex: 1}}>
             <FlatList
               data={data}
               horizontal={true}
@@ -33,7 +35,7 @@ const ProductList = ({index}) => {
                       <ProductCard
                         card1
                         Ratingsline
-                        image={Assets.products.oilbotel1}
+                        image={item.image1}
                         text1={'$14.80'}
                         text2={'$17.80'}
                         backgroundColor={Colors.basebg}
@@ -58,9 +60,9 @@ const ProductList = ({index}) => {
               OnpresCard={() => {
                 navigation.navigate('AssismentScreen');
               }}
-              text1={''}
-              text2={'Plants'}
-              text3={'See All'}
+              text1={text1}
+              text2={text2}
+              text3={text3}
               img={Assets.BackgrounImages.bg1}
               text="Fitness Assesment"
             />
@@ -74,7 +76,7 @@ const ProductList = ({index}) => {
                       <ProductCard
                         card1
                         Ratingsline
-                        image={Assets.products.oilbotel1}
+                        image={image1}
                         text1={'$14.80'}
                         text2={'$17.80'}
                         backgroundColor={Colors.basebg}
@@ -98,14 +100,7 @@ const ProductList = ({index}) => {
     </>
   );
 };
-const data = [
-  {image: Assets.services.services1, Title: 'Landscaping'},
-  {image: Assets.services.services2, Title: 'Lawn Mowing'},
-  {image: Assets.services.services4, Title: 'Tree Services'},
-  {image: Assets.services.services3, Title: 'Tractor Repair'},
-  {image: Assets.services.services5, Title: 'Pest Control'},
-  {Title: 'All Services'},
-];
+
 export default ProductList;
 
 const styles = StyleSheet.create({});

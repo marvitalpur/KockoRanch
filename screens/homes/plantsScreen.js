@@ -15,8 +15,6 @@ import Assets from '../../assets';
 import {FlatList} from 'react-native-gesture-handler';
 import Header from '../../components/Header';
 
-import CoverImgCard from './CoverImgCard';
-
 const PlantsScreen = ({navigation}) => {
   const [Data, setData] = useState([]);
   const getApiData = async () => {

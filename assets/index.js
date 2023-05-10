@@ -15,9 +15,11 @@ const Assets = {
     product1: require('./images/productlg.png'),
     product2: require('./images/bottel.png'),
     product3: require('./images/bottel2.png'),
-    product4: require('./images/BAckgroundMD.png'),
+    product4: require('./images/neklace.png'),
     oilbotel1: require('./images/oilbottel.png'),
     productItem: require('./images/productitem1.png'),
+    Tshirt: require('./images/Tshirt.png'),
+    Leaf: require('./images/LeafIcon.png'),
   },
   services: {
     services1: require('./images//services1.png'),
@@ -26,13 +28,12 @@ const Assets = {
     services4: require('./images/Service4.png'),
     services5: require('./images/Service5.png'),
   },
-  DeliveryScrevice:
-  { 
-    DeliveryS1:require('./images/Dservice1.png'),
-    DeliveryS2:require('./images/Dservice2.png'),
-    DeliveryS3:require('./images/Dservice3.png'),
-    DeliveryS4:require('./images/Dservice4.png'),
-},
+  DeliveryScrevice: {
+    DeliveryS1: require('./images/Dservice1.png'),
+    DeliveryS2: require('./images/Dservice2.png'),
+    DeliveryS3: require('./images/Dservice3.png'),
+    DeliveryS4: require('./images/Dservice4.png'),
+  },
   bottel: {
     bottel1: require('./images/bottel.png'),
     bottel2: require('./images/botel2.png'),

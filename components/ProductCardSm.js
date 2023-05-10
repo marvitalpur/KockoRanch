@@ -12,11 +12,14 @@ const ProductCardSm = ({onPress, text1, text2, text3}) => {
     <TouchableOpacity onPress={onPress} style={{}}>
       <View style={styles.header}>
         <View style={{flexDirection: 'row'}}>
-          <Text style={[styles.hradertext, {}]}>{text1}</Text>
+          <View style={{flexDirection: 'row'}}>
+            <Text style={[styles.hradertext, {}]}>{text1}</Text>
+            <Text style={[{color: Colors.Secondary}]}>{text1}</Text>
+          </View>
           <Text
             style={[
               styles.hradertext,
-              {fontSize: 16, borderBottomWidth: 2, borderColor: Colors.Primary},
+              {borderBottomWidth: 2, borderColor: Colors.Primary},
             ]}>
             {text2}
           </Text>

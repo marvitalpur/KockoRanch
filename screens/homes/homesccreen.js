@@ -7,12 +7,14 @@ import ProductCardSm from '../../components/ProductCardSm';
 import Assets from '../../assets';
 import {FlatList} from 'react-native-gesture-handler';
 import Header from '../../components/Header';
-import CoverImgCard from './CoverImgCard';
 import ProductCompo from '../../components/ProductCompo';
 import Searchbar from '../../components/Searchbar';
 import CirleCard from '../../components/CircleCard/CirleCard';
 import ContentCompo from '../../components/ContentCompo';
 import ProductList from '../../components/PrductLis';
+import CoverImgCard from '../../components/CoverImgCard';
+import ProductCircle from '../../components/CircleCard/PRoductsCircle';
+import CircleCard from '../../components/CircleCard/CirleCard';
 
 const HomeScreen = ({navigation}) => {
   const [Data, setData] = useState([]);
@@ -41,19 +43,6 @@ const HomeScreen = ({navigation}) => {
               <Searchbar placeholder={'Search anything you need..'} />
             </View>
           </View>
-          <View style={{paddingHorizontal: 15}}>
-            <ProductCardSm
-              OnpresCard={() => {
-                navigation.navigate('AssismentScreen');
-              }}
-              text1={'Featured'}
-              text2={'Products'}
-              text3={'See All'}
-              img={Assets.BackgrounImages.bg1}
-              text="Fitness Assesment"
-            />
-            <ProductList index />
-          </View>
           <View style={[styles.detailProduct, {}]}>
             <ContentCompo />
             <View style={{flex: 1, paddingHorizontal: 15}}>
@@ -61,14 +50,20 @@ const HomeScreen = ({navigation}) => {
                 OnpresCard={() => {
                   navigation.navigate('AssismentScreen');
                 }}
-                text1={'All '}
-                text2={' Products'}
+                text1={'All  Pro'}
+                text2={'ducts'}
                 text3={'See All'}
                 img={Assets.BackgrounImages.bg1}
                 text="Fitness Assesment"
               />
-              <CirleCard />
-              <ProductList />
+              {/* <CirleCard /> */}
+              <ProductCircle />
+              <ProductList
+                image1={Assets.products.oilbotel1}
+                text1={'pla'}
+                text2={'nt'}
+                text3={'See All'}
+              />
             </View>
             <View
               style={{
@@ -109,15 +104,16 @@ const HomeScreen = ({navigation}) => {
                   );
                 }}
               />
-              <View style={{}}>
+              <View style={{paddingBottom: 30}}>
                 <CoverImgCard
+                  index
                   textName={'Trade Products Or Plants'}
                   textDisc={
                     'Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut ld diam nonumy eirmod tempor invidunt ut ld diam nonumy eirmod tempor invidunt ut l'
                   }
                   coverimage={Assets.BackgrounImages.cover1}
                 />
-                <View style={{position: 'absolute', top: 140}}>
+                <View style={{position: 'absolute', top: 180}}>
                   <FlatList
                     data={data}
                     horizontal={true}
@@ -191,6 +187,7 @@ const HomeScreen = ({navigation}) => {
                   alignSelf: 'center',
                 }}>
                 <CoverImgCard
+                  index
                   borderRadius={20}
                   backgroundColor={Colors.Secondary}
                   opacity={0.75}
@@ -204,6 +201,37 @@ const HomeScreen = ({navigation}) => {
                 />
               </View>
             </View>
+            <View style={{flex: 1, paddingHorizontal: 15}}>
+              <ProductList
+                image1={Assets.products.Tshirt}
+                text1={'T-'}
+                text2={'Shirt'}
+                text3={'See All'}
+              />
+              <ProductList
+                image1={Assets.products.product4}
+                text1={'Plant '}
+                text2={'Inspired Jewelry'}
+                text3={'See All'}
+              />
+              <ProductList
+                image1={Assets.products.Leaf}
+                text1={'Plant '}
+                text2={'Inspired Art'}
+                text3={'See All'}
+              />
+            </View>
+          </View>
+          <View
+            style={{
+              flexDirection: 'row',
+              alignSelf: 'center',
+            }}>
+            <CoverImgCard
+              paddingTop={30}
+              coverimage={Assets.BackgrounImages.cover3}
+            />
+            <CircleCard />
           </View>
         </ScrollView>
       </ImageBackground>
