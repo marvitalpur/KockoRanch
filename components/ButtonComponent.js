@@ -1,9 +1,9 @@
-import {StyleSheet, Text, View} from 'react-native';
+import { StyleSheet, Text, View } from 'react-native';
 import React from 'react';
-import {Button, TouchableRipple} from 'react-native-paper';
+import { Button, TouchableRipple } from 'react-native-paper';
 import Icon from 'react-native-vector-icons/Feather';
 import Icon2 from 'react-native-vector-icons/MaterialIcons';
-import {Colors} from '../assets/constatnts/Colors';
+import { Colors } from '../assets/constatnts/Colors';
 
 const ButtonComponent = ({
   icon,
@@ -45,7 +45,7 @@ const ButtonComponent = ({
         }}>
         {icon1 && (
           <>
-            <View style={{margin: 5}}>
+            <View style={{ margin: 5 }}>
               <BookIcon />
             </View>
           </>
@@ -56,12 +56,11 @@ const ButtonComponent = ({
             color: textColor,
             fontSize: btnfonSize,
             fontFamily: 'Bahnschrift',
-            fontWeight: 400,
           }}>
           {buttonText}
         </Text>
         {SvgICon && (
-          <View style={{paddingHorizontal: paddingHorizontal}}>{SvgICon}</View>
+          <View style={{ paddingHorizontal: paddingHorizontal }}>{SvgICon}</View>
         )}
 
         {icon === 'logout' ? (

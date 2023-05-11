@@ -134,6 +134,29 @@ const CategoryScreen = ({ navigation }) => {
     </SafeAreaView>
   );
 };
+const HeaderComponent = ({ navigation }) => {
+  return (
+    <View style={{}}>
+      <TouchableRipple
+        onPress={() =>
+          navigation.navigate('CheckoutOrder', {
+            headtext: '',
+          })
+        }
+        style={{
+          width: 50,
+          height: 50,
+          backgroundColor: '#fff',
+          justifyContent: 'center',
+          alignItems: 'center',
+          borderRadius: 10,
+          elevation: 15,
+        }}>
+        <BackSvg />
+      </TouchableRipple>
+    </View>
+  );
+};
 export default CategoryScreen;
 const styles = StyleSheet.create({
   container: {

@@ -1,7 +1,8 @@
 import { StyleSheet, Text, View } from 'react-native';
 import React from 'react';
-import { TextInput } from 'react-native-paper';
+import { TextInput, TextInputIcon } from 'react-native-paper';
 import { Colors } from '../assets/constatnts/Colors';
+import { Setting } from '../assets/svgs/Drawersvg';
 
 const Inputs = ({ text, setText, placeholder, iconname, textColor }) => {
   const onChangeHandler = (value, name) => {
@@ -17,12 +18,12 @@ const Inputs = ({ text, setText, placeholder, iconname, textColor }) => {
         placeholder={placeholder}
         value={text}
         onChangeText={text => onChangeHandler(text, 'input1')} // Update here
-        right={<TextInput.Icon icon={iconname} iconColor="#00B4D8" />}
+        right={<TextInputIcon name={'arrow'} color="#ffff" />}
         activeUnderlineColor="transparent"
         underlineColor="transparent"
         selectionColor="#000"
         placeholderTextColor={textColor}
-        theme={{ roundness: 10 }}
+        theme={{ roundness: 5 }}
         style={{
           borderWidth: 1,
           borderColor: Colors.Tertiary,
@@ -31,7 +32,7 @@ const Inputs = ({ text, setText, placeholder, iconname, textColor }) => {
           height: 50,
           //   opacity: text.length < 1 ? 0.5 : 1,
           fontSize: 14,
-          borderRadius: 10,
+          borderRadius: 5,
           backgroundColor: Colors.Secondary,
           shadowColor: Colors.Secondary,
           shadowOffset: {

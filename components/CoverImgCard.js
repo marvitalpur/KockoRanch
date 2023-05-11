@@ -7,8 +7,8 @@ import {
   View,
 } from 'react-native';
 import React from 'react';
-import Assets from '../../assets';
-import Colors from '../../assets/constatnts/Colors';
+import Assets from '../assets';
+import Colors from '../assets/constatnts/Colors';
 
 const CoverImgCard = ({
   coverimage,

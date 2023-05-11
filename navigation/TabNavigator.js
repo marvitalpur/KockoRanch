@@ -1,11 +1,11 @@
 import React from 'react';
-import {StyleSheet} from 'react-native';
-import {createBottomTabNavigator} from '@react-navigation/bottom-tabs';
-import {getFocusedRouteNameFromRoute} from '@react-navigation/native';
+import { StyleSheet } from 'react-native';
+import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
+import { getFocusedRouteNameFromRoute } from '@react-navigation/native';
 import DeviceInfo from 'react-native-device-info';
 import HomeScreen from '../screens/homes/homesccreen';
 import Colors from '../assets/constatnts/Colors';
-import {Image} from 'react-native';
+import { Image } from 'react-native';
 import Assets from '../assets';
 import CategoryScreen from '../screens/homes/CategoryScreen';
 import CartScreen from '../screens/homes/CartScreen';
@@ -53,7 +53,7 @@ const MyTabs = props => {
         options={{
           headerShown: false,
           tabBarLabel: 'Home',
-          tabBarIcon: ({focused}) => (focused ? <GreenHome /> : <Homesvg />),
+          tabBarIcon: ({ focused }) => (focused ? <GreenHome /> : <Homesvg />),
         }}
       />
       <Tab.Screen
@@ -62,7 +62,7 @@ const MyTabs = props => {
         options={{
           headerShown: false,
           tabBarLabel: 'Categories',
-          tabBarIcon: ({focused}) =>
+          tabBarIcon: ({ focused }) =>
             focused ? <Categories /> : <Categories />,
         }}
       />
@@ -71,7 +71,7 @@ const MyTabs = props => {
         component={CartScreen}
         options={{
           headerShown: false,
-          tabBarIcon: ({focused}) => (focused ? <GreenCart /> : <WCart />),
+          tabBarIcon: ({ focused }) => (focused ? <GreenCart /> : <WCart />),
         }}
       />
       <Tab.Screen
@@ -79,7 +79,7 @@ const MyTabs = props => {
         component={AccountScreen}
         options={{
           headerShown: false,
-          tabBarIcon: ({focused}) => (focused ? <Cart /> : <Cart />),
+          tabBarIcon: ({ focused }) => (focused ? <Cart /> : <Cart />),
         }}
       />
     </Tab.Navigator>

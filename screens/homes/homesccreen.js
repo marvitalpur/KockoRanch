@@ -18,9 +18,11 @@ import { FlatList } from 'react-native-gesture-handler';
 import ButtonComponent from '../../components/ButtonComponent';
 import Header from '../../components/Header';
 import ProductCircle from '../../components/PRoductsCircle';
-import CoverImgCard from './CoverImgCard';
 import ProductCompo from '../../components/ProductCompo';
 import Searchbar from '../../components/Searchbar';
+import CoverImgCard from '../../components/CoverImgCard';
+
+
 
 const HomeScreen = ({ navigation }) => {
   const [bgColor, SetBgColor] = useState(0);

@@ -7,18 +7,18 @@ import {
   Text,
   View,
 } from 'react-native';
-import React, {useEffect, useState} from 'react';
-import {SafeAreaView} from 'react-native-safe-area-context';
+import React, { useEffect, useState } from 'react';
+import { SafeAreaView } from 'react-native-safe-area-context';
 import Colors from '../../assets/constatnts/Colors';
 import ProductCard from '../../components/ProductCard';
 import ProductCardSm from '../../components/ProductCardSm';
 import Assets from '../../assets';
-import {FlatList} from 'react-native-gesture-handler';
+import { FlatList } from 'react-native-gesture-handler';
 import Header from '../../components/Header';
 import ProductCircle from '../../components/PRoductsCircle';
-import CoverImgCard from './CoverImgCard';
 
-const PlantsScreen = ({navigation}) => {
+
+const PlantsScreen = ({ navigation }) => {
   const [Data, setData] = useState([]);
   const getApiData = async () => {
     const url = 'https://jsonplaceholder.typicode.com/posts';
@@ -30,11 +30,11 @@ const PlantsScreen = ({navigation}) => {
     getApiData();
   }, []);
   const data = [
-    {image: Assets.products.oilbotel1},
-    {image: Assets.services.services2},
-    {image: Assets.services.services3},
-    {image: Assets.services.services4},
-    {image: Assets.services.services5},
+    { image: Assets.products.oilbotel1 },
+    { image: Assets.services.services2 },
+    { image: Assets.services.services3 },
+    { image: Assets.services.services4 },
+    { image: Assets.services.services5 },
     {},
   ];
   return (
@@ -46,10 +46,10 @@ const PlantsScreen = ({navigation}) => {
         <ScrollView
           bounces={false}
           showsVerticalScrollIndicator={true}
-          contentContainerStyle={{flexGrow: 1}}>
-          <View style={{flex: 1, paddingHorizontal: 20}}>
-            <View style={{marginVertical: 25, flexDirection: 'row'}}>
-              <View style={{paddingHorizontal: 5}}>
+          contentContainerStyle={{ flexGrow: 1 }}>
+          <View style={{ flex: 1, paddingHorizontal: 20 }}>
+            <View style={{ marginVertical: 25, flexDirection: 'row' }}>
+              <View style={{ paddingHorizontal: 5 }}>
                 {/* <Header
                   iconname={'bars'}
                   onPress={() => navigation.openDrawer()}
@@ -67,10 +67,10 @@ const PlantsScreen = ({navigation}) => {
               <FlatList
                 data={data}
                 numColumns={2}
-                renderItem={({item, index}) => {
+                renderItem={({ item, index }) => {
                   return (
                     <>
-                      <View style={{padding: 25}}>
+                      <View style={{ padding: 25 }}>
                         <ProductCard
                           image={Assets.products.oilbotel1}
                           text1={'$14.80'}
