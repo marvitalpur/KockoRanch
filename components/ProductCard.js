@@ -1,11 +1,12 @@
-import {StyleSheet, Text, TouchableOpacity, View, Image} from 'react-native';
-import React, {useState} from 'react';
-import {WIDTH} from '../assets/constatnts/Dimentions';
+import { StyleSheet, Text, TouchableOpacity, View, Image } from 'react-native';
+import React, { useState } from 'react';
+import { WIDTH } from '../assets/constatnts/Dimentions';
 import Colors from '../assets/constatnts/Colors';
 import {CustomRating} from './MyRating';
 import {Title} from 'react-native-paper';
 import Assets from '../assets';
 const ProductCard = ({
+  navigation,
   name,
   image,
   description,

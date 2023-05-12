@@ -6,19 +6,21 @@ import {
   TouchableOpacity,
   ImageBackground,
 } from 'react-native';
-import React, {useEffect, useState} from 'react';
-import {SafeAreaView} from 'react-native-safe-area-context';
-import {KeyboardAwareScrollView} from 'react-native-keyboard-aware-scroll-view';
+import React, { useEffect, useState } from 'react';
+import { SafeAreaView } from 'react-native-safe-area-context';
+import { KeyboardAwareScrollView } from 'react-native-keyboard-aware-scroll-view';
 import Assets from '../../assets';
-import {Colors} from '../../assets/constatnts/Colors';
+import { Colors } from '../../assets/constatnts/Colors';
 import Icon from 'react-native-vector-icons/Feather';
 import ButtonComponent from '../../components/ButtonComponent';
 import Inputs from '../../components/Inputs';
-import {HEIGHT, WIDTH} from '../../assets/constatnts/Dimentions';
-import {Avatar} from 'react-native-paper';
+import { HEIGHT, WIDTH } from '../../assets/constatnts/Dimentions';
+import { Avatar } from 'react-native-paper';
 import Header from '../../components/Header';
+import { PencileIcon } from '../../assets/svgs/AllIcons';
+import { Setting } from '../../assets/svgs/Drawersvg';
 
-const AccountScreen = ({navigation}) => {
+const AccountScreen = ({ navigation }) => {
   const [data, setData] = useState({
     username: '',
     phone: '',
@@ -31,21 +33,21 @@ const AccountScreen = ({navigation}) => {
         source={Assets.BackgrounImages.bg1}
         resizeMode="cover"
         style={styles.image}>
-        <View style={{paddingHorizontal: 25, marginTop: 25}}>
+        <View style={{ paddingHorizontal: 25, marginTop: 25 }}>
           <Header iconname={'bars'} onPress={() => navigation.openDrawer()} />
         </View>
 
-        <View style={{alignSelf: 'center'}}>
+        <View style={{ alignSelf: 'center' }}>
           <Avatar.Image
             size={90}
-            style={{alignSelf: 'center'}}
+            style={{ alignSelf: 'center' }}
             source={Assets.Logos.avatarPlaceholder}
           />
           <View style={styles.plusicon}>
             <Icon name="#000" color={'#fff'} />
           </View>
         </View>
-        <View style={{paddingHorizontal: 25}}>
+        <View style={{ paddingHorizontal: 25 }}>
           <View style={styles.box}>
             <KeyboardAwareScrollView
               keyboardShouldPersistTaps="handled"
@@ -53,14 +55,14 @@ const AccountScreen = ({navigation}) => {
               enableAutomaticScroll={true}
               bounces={false}
               showsVerticalScrollIndicator={false}
-              contentContainerStyle={{flexGrow: 1}}>
+              contentContainerStyle={{ flexGrow: 1 }}>
               <View
                 style={{
                   paddingHorizontal: 15,
                 }}>
-                <View style={{marginTop: 10}} />
+                <View style={{ marginTop: 10 }} />
                 <Text style={styles.inputstext}> Enter Email or Phone </Text>
-                <View style={{marginTop: 10}}>
+                <View style={{ marginTop: 10 }}>
                   <Inputs
                     placeholder="Jon"
                     textColor="#AAA"
@@ -69,30 +71,32 @@ const AccountScreen = ({navigation}) => {
                     formkey="username"
                   />
                 </View>
-                <View style={{marginTop: 5}} />
+                <View style={{ marginTop: 5 }} />
                 <Text style={styles.inputstext}>Last Name</Text>
-                <View style={{marginTop: 10}} />
+                <View style={{ marginTop: 10 }} />
                 <Inputs
+                  iconname={<Setting />}
                   placeholder="Doe"
                   textColor="#AAA"
                   text={data.username}
                   setText={setData}
                   formkey="username"
                 />
-                <View style={{marginTop: 5}} />
+                <View style={{ marginTop: 5 }} />
                 <Text style={styles.inputstext}>Email</Text>
-                <View style={{marginTop: 5}} />
+                <View style={{ marginTop: 5 }} />
                 <Inputs
                   placeholder="JONEDOE@gmail.com"
                   textColor="#AAA"
                   text={data.Email}
                   setText={setData}
                   formkey="email"
+                  iconname={<PencileIcon />}
                 />
 
-                <View style={{marginTop: 5}} />
+                <View style={{ marginTop: 5 }} />
                 <Text style={styles.inputstext}>Phone Number</Text>
-                <View style={{marginTop: 5}} />
+                <View style={{ marginTop: 5 }} />
                 <Inputs
                   placeholder="+1234567890"
                   textColor="#AAA"

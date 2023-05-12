@@ -2,8 +2,8 @@ const Assets = {
   BackgrounImages: {
     bg1: require('./images/BAckgroundMD.png'),
     cover1: require('./images/cover1.png'),
-    cover2: require('./images/profile.png'),
-    cover3: require('./images/cover1.png'),
+    cover2: require('./images/cover2.png'),
+    cover3: require('./images/cover3.png'),
   },
   Logos: {
     profile: require('./images/profile.png'),
